@@ -8,7 +8,9 @@ chaquopy {
     defaultConfig {
         pip {
             // A requirement specifier, with or without a version number:
-            install("numpy")
+            install("deep_translator")
+            install("SpeechRecognition")
+            install("sounddevice")
         }
     }
 }
@@ -30,7 +32,7 @@ android {
         }
 
         ndk {
-            abiFilters+=listOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64")
+            abiFilters+=listOf("arm64-v8a", "x86", "x86_64")
         }
 
     }
@@ -59,7 +61,7 @@ android {
     }
     packaging {
         resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += listOf("/META-INF/{AL2.0,LGPL2.1}","/META-INF/INDEX.LIST","META-INF/DEPENDENCIES")
         }
     }
 }
