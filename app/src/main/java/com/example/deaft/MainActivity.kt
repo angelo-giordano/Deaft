@@ -33,6 +33,14 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (! Python.isStarted()) {
+            Python.start(AndroidPlatform(this))
+        }
+
+        val py = Python.getInstance()
+        val module = py.getModule("main")
+
+        val numsLength = module[ "nums_len" ]?.toInt()
         setContent {
             DeaftTheme {
                 // A surface container using the 'background' color from the theme
@@ -40,17 +48,11 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    Greeting("num_ops : $numsLength}")
                 }
             }
         }
 
-        if (! Python.isStarted()) {
-            Python.start(AndroidPlatform(this))
-        }
-
-        val py = Python.getInstance()
-        val module = py.getModule("plot")
 
     }
 }

@@ -4,13 +4,22 @@ plugins {
     id("com.chaquo.python")
 }
 
+chaquopy {
+    defaultConfig {
+        pip {
+            // A requirement specifier, with or without a version number:
+            install("numpy")
+        }
+    }
+}
+
 android {
     namespace = "com.example.deaft"
     compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.deaft"
-        minSdk = 24
+        minSdk = 21
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -19,11 +28,10 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
         ndk {
             abiFilters+=listOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64")
         }
-
-
 
     }
 
