@@ -1,8 +1,7 @@
 package com.example.deaft
 
 import android.Manifest
-import android.app.Activity
-import android.content.ActivityNotFoundException
+import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.os.Vibrator
@@ -27,16 +26,18 @@ import android.content.pm.PackageManager
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
+import android.os.VibrationEffect
+import android.provider.Settings
 import android.widget.Button
 import android.widget.TextView
 import android.speech.RecognitionListener
 import android.speech.SpeechRecognizer
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.chaquo.python.android.AndroidPlatform
 
-class MainActivity : ComponentActivity() {
-
+class MainActivity : AppCompatActivity() {
 
     private lateinit var speechRecognizer: SpeechRecognizer
     private lateinit var transcribedText: TextView
@@ -73,7 +74,6 @@ class MainActivity : ComponentActivity() {
         }
 
         startButton.setOnClickListener {
-            vibratePhone()
             startSpeechRecognition()
         }
     }
@@ -89,7 +89,7 @@ class MainActivity : ComponentActivity() {
                 override fun onResults(results: Bundle?) {
                     val matches = results?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
                     if (!matches.isNullOrEmpty()) {
-                        val processedText = processSpeech(matches[0])
+                        val processedText = translateToVib(matches[0])
                         sendMessageToUI(processedText)
                     }
                 }
@@ -136,9 +136,10 @@ class MainActivity : ComponentActivity() {
     }
 
 
-    private fun processSpeech(text: String): String {
+    private fun translateToVib(text: String): String {
         // Chama a função Python diretamente usando Chaquopy
-        return Python.getInstance().getModule("main").callAttr("process_speech", text).toString()
+        vibrate(this, 1000)
+        return Python.getInstance().getModule("main").callAttr("translate_to_vib", text).toString()
     }
 
     private fun sendMessageToUI(processedText: String) {
@@ -155,17 +156,31 @@ class MainActivity : ComponentActivity() {
         super.onDestroy()
         speechRecognizer.destroy()
     }
-    fun vibratePhone() {
-        val vibrator = if (Build.VERSION.SDK_INT >= 31) {
-            val vibratorManager =
-                applicationContext.getSystemService(VIBRATOR_MANAGER_SERVICE) as VibratorManager
-            vibratorManager.defaultVibrator
-        } else {
-            @Suppress("DEPRECATION")
-            applicationContext.getSystemService(VIBRATOR_SERVICE) as Vibrator
+
+    private fun vibrate(context: Context, milliseconds: Long) {
+        val vibrator: Vibrator? = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator?
+
+        if (vibrator != null && vibrator.hasVibrator()) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                // Para Android Oreo e versões mais recentes
+                vibrator.vibrate(VibrationEffect.createOneShot(milliseconds, VibrationEffect.DEFAULT_AMPLITUDE))
+            } else {
+                // Para versões anteriores ao Android Oreo
+                @Suppress("DEPRECATION")
+                vibrator.vibrate(milliseconds)
+            }
         }
     }
+
+    private fun isVibrationEnabled(context: Context): Boolean {
+        val mode = Settings.System.getInt(context.contentResolver, Settings.System.VIBRATE_WHEN_RINGING, 0)
+        return mode != 0
+    }
 }
+
+
+
+
 /*class MainActivity : ComponentActivity() {
 
     fun vibratePhone() {

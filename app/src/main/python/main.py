@@ -3,10 +3,6 @@
 #from deep_translator import GoogleTranslator
 
 
-def process_speech(text):
-# Faça o processamento necessário na fala recebida
-    processed_text = text.upper()
-    return processed_text + " vamo krl"
 '''
 def listen_mic(recognizer, microphone, lang='pt-BR'):
     if not isinstance(recognizer, sr.Recognizer):
@@ -20,6 +16,7 @@ def listen_mic(recognizer, microphone, lang='pt-BR'):
         audio = recognizer.listen(source)
 
     return audio
+
 
 def recognize_speech_from_mic(recognizer, microphone, lang='pt-BR', txt='Fala algo'):
 
@@ -49,17 +46,32 @@ def define_language(recognizer, microphone, lang='pt-BR'):
 
     if response["transcription"] in TARGET_LANGUAGES.keys():
         return TARGET_LANGUAGES[response["transcription"]]
-
+'''
 
 TARGET_LANGUAGES = {"russo": "ru-RU", "francês": "fr-FR", "inglês": "en-US", "alemão": "de-DE", "mandarim": "zh-CN", "polonês": "pl", "português": "pt-BR", "espanhol": "es-ES", "japonês": "ja", "coreano": "ko"}
 
 WORDS = {"não":(0,), "sim": (1,), "talvez": (0,1), "tudo": (0,1,1), "certo": (0,0)}
 
 
+'''
 microphone = sr.Microphone()
 recognizer = sr.Recognizer()
 def_lang = define_language(recognizer, microphone)
+'''
 
+def translate_to_vib(text):
+    intersect = [k for k in text.split() if WORDS.get(k)]
+    intersect_sorted = sorted(intersect, key=lambda x: text.split().index(x))
+    translated_text = []
+    if intersect_sorted:
+        for k in intersect_sorted:
+            translated_text.append(WORDS.get(k))
+    return translated_text
+
+texto = "Não sei o que tá acontecendo e tá tudo certo"
+print(translate_to_vib(texto))
+
+'''
 while True:
 
     if def_lang is None:
