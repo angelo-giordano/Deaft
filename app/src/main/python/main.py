@@ -84,8 +84,6 @@ def set_vib(text):
     return vibs_duration
 
 
-texto = "Não sei o que tá acontecendo e tá tudo certo"
-print(set_vib(texto))
 
 '''
 while True:

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "943925557163",
+    "project_id": "deaft-864a2",
+    "storage_bucket": "deaft-864a2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:943925557163:android:1d5824a5ee8970150a04ee",
+        "android_client_info": {
+          "package_name": "com.example.deaft"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "943925557163-1eptff9l41qlcog60vq5rombdva2t03m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.deaft",
+            "certificate_hash": "e291586dc4aaa2ed614cda443a769fcdca355a1d"
+          }
+        },
+        {
+          "client_id": "943925557163-0ne1c7alpjr1vk6htesv46qhd6jglml1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXqda-TSM5OF24mF5T1-9gq45kaY5cLzc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "943925557163-0ne1c7alpjr1vk6htesv46qhd6jglml1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

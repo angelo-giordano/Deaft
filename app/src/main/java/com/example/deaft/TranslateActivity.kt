@@ -154,6 +154,7 @@ class TranslateActivity : AppCompatActivity() {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 // Para Android Oreo e versões mais recentes
                 vibrator.vibrate(VibrationEffect.createOneShot(milliseconds, VibrationEffect.DEFAULT_AMPLITUDE))
+                Thread.sleep(1000)
             } else {
                 // Para versões anteriores ao Android Oreo
                 @Suppress("DEPRECATION")

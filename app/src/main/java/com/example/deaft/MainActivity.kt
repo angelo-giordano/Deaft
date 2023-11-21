@@ -1,112 +1,101 @@
 package com.example.deaft
-
-import android.Manifest
-import android.content.Context
-import android.os.Build
-import android.os.Bundle
-import android.os.Vibrator
-import android.os.VibratorManager
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.chaquo.python.Python
 import android.content.Intent
-import android.speech.RecognizerIntent
-import android.speech.tts.TextToSpeech
-import android.widget.Toast
-import java.util.Locale
-import java.util.*
-import android.content.pm.PackageManager
-import android.os.Handler
-import android.os.Looper
-import android.os.Message
-import android.os.VibrationEffect
-import android.provider.Settings
-import android.widget.Button
-import android.widget.TextView
-import android.speech.RecognitionListener
-import android.speech.SpeechRecognizer
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import com.chaquo.python.android.AndroidPlatform
-import android.view.View
+import android.os.Bundle
+import android.widget.Toast
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.SignInButton
+import com.google.android.gms.common.api.ApiException
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
 
 class MainActivity : AppCompatActivity() {
+    lateinit var mGoogleSignInClient: GoogleSignInClient
+    val RC_SIGN_IN: Int = 1
+    lateinit var gso:GoogleSignInOptions
+    lateinit var mAuth: FirebaseAuth
+    lateinit var google_signIn: SignInButton
 
-    private lateinit var btnNavigate: Button
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+    override fun onStart() {
+        super.onStart()
 
-        btnNavigate = findViewById(R.id.btnNavigate)
-        btnNavigate.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
+        // Check if user is signed in (non-null) and update UI accordingly.
+
+        val user = mAuth.currentUser
+        if (user != null) {
+            val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
         }
     }
-}
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_login)
+        mAuth = FirebaseAuth.getInstance()
+        google_signIn = findViewById(R.id.google_signIn)
 
+        createRequest()
 
-
-/*class MainActivity : ComponentActivity() {
-
-    fun vibratePhone() {
-        val vibrator = if (Build.VERSION.SDK_INT >= 31) {
-            val vibratorManager =
-                applicationContext.getSystemService(VIBRATOR_MANAGER_SERVICE) as VibratorManager
-            vibratorManager.defaultVibrator
-        } else {
-            @Suppress("DEPRECATION")
-            applicationContext.getSystemService(VIBRATOR_SERVICE) as Vibrator
+        //Click on sign in button
+        google_signIn.setOnClickListener {
+            signIn();
         }
     }
-}
 
-override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_main)
 
-    val btn = findViewById<Button>(R.id.btn)
-    val tv = findViewById<TextView>(R.id.text_view)
-
-    if (! Python.isStarted()) {
-        Python.start(AndroidPlatform(this))
+    private fun createRequest() {
+        // Configure Google Sign In
+        gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
     }
 
-    val py = Python.getInstance()
+    private fun signIn() {
+        val signInIntent = mGoogleSignInClient.signInIntent
+        startActivityForResult(signInIntent, RC_SIGN_IN)
+    }
 
-    btn.setOnClickListener(View.OnClickListener {
-        view ->
-        val pyObj = py.getModule("main").callAttr("test")
-        tv.setText(pyObj.toString())
-    })
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+        if (requestCode == RC_SIGN_IN) {
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+            val exception=task.exception
+
+            try {
+                // Google Sign In was successful, authenticate with Firebase
+                val account = task.getResult(ApiException::class.java)!!
+                firebaseAuthWithGoogle(account)
+            }
+            catch (e: ApiException) {
+                // Google Sign In failed, update UI appropriately
+                Toast.makeText(this, "Login Failed", Toast.LENGTH_SHORT)
+                    .show()
+            }
+
+        }
+    }
+
+    private fun firebaseAuthWithGoogle(account: GoogleSignInAccount) {
+        val credential = GoogleAuthProvider.getCredential(account.idToken, null)
+
+        mAuth.signInWithCredential(credential)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Sign in success, update UI with the signed-in user's information
+                    val intent= Intent(this, MenuActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Toast.makeText(this@MainActivity, "Login Failed: ", Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
 
 }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-Text(
-    text = "Hello $name!",
-    modifier = modifier
-)
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-DeaftTheme {
-    Greeting("Android")
-}
-}
-*/
-
-
