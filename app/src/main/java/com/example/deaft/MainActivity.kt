@@ -90,7 +90,10 @@ class MainActivity : AppCompatActivity() {
                     val matches = results?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
                     if (!matches.isNullOrEmpty()) {
                         val processedText = translateToVib(matches[0])
-                        sendMessageToUI(processedText)
+                        processedText.forEach { element ->
+                            vibrate(element)
+                        }
+                        sendMessageToUI(processedText.toString())
                     }
                 }
 
@@ -126,7 +129,7 @@ class MainActivity : AppCompatActivity() {
 
                 // Aguarde um curto período de tempo antes de começar a ouvir novamente
                 try {
-                    Thread.sleep(1000) // Ajuste conforme necessário
+                    Thread.sleep(500) // Ajuste conforme necessário
                 } catch (e: InterruptedException) {
                     e.printStackTrace()
                 }
@@ -136,10 +139,10 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun translateToVib(text: String): String {
+    private fun translateToVib(text: String): List<Long> {
         // Chama a função Python diretamente usando Chaquopy
-        vibrate(this, 1000)
-        return Python.getInstance().getModule("main").callAttr("translate_to_vib", text).toString()
+
+        return Python.getInstance().getModule("main").callAttr("set_vib", text).asList().map{ it.toLong() }
     }
 
     private fun sendMessageToUI(processedText: String) {
@@ -157,8 +160,8 @@ class MainActivity : AppCompatActivity() {
         speechRecognizer.destroy()
     }
 
-    private fun vibrate(context: Context, milliseconds: Long) {
-        val vibrator: Vibrator? = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator?
+    private fun vibrate(milliseconds: Long) {
+        val vibrator: Vibrator? = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator?
 
         if (vibrator != null && vibrator.hasVibrator()) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

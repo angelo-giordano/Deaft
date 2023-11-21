@@ -50,7 +50,7 @@ def define_language(recognizer, microphone, lang='pt-BR'):
 
 TARGET_LANGUAGES = {"russo": "ru-RU", "francês": "fr-FR", "inglês": "en-US", "alemão": "de-DE", "mandarim": "zh-CN", "polonês": "pl", "português": "pt-BR", "espanhol": "es-ES", "japonês": "ja", "coreano": "ko"}
 
-WORDS = {"não":(0,), "sim": (1,), "talvez": (0,1), "tudo": (0,1,1), "certo": (0,0)}
+WORDS = {"não":'0', "sim": '1', "talvez": '01', "tudo": '011', "certo": '00'}
 
 
 '''
@@ -60,16 +60,32 @@ def_lang = define_language(recognizer, microphone)
 '''
 
 def translate_to_vib(text):
+    text = text.lower()
     intersect = [k for k in text.split() if WORDS.get(k)]
     intersect_sorted = sorted(intersect, key=lambda x: text.split().index(x))
     translated_text = []
+    print(intersect_sorted)
     if intersect_sorted:
         for k in intersect_sorted:
             translated_text.append(WORDS.get(k))
     return translated_text
 
+
+def set_vib(text):
+    vibs = []
+    for w in translate_to_vib(text):
+        vibs.append(w)
+
+    print(vibs)
+    vibs_duration = []
+    for v in vibs:
+        vibs_duration.extend([200 if bit == '0' else 1000 for bit in v])
+
+    return vibs_duration
+
+
 texto = "Não sei o que tá acontecendo e tá tudo certo"
-print(translate_to_vib(texto))
+print(set_vib(texto))
 
 '''
 while True:
