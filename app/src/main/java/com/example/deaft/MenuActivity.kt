@@ -5,15 +5,24 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 class MenuActivity : AppCompatActivity() {
 
-    private lateinit var btnNavigate: Button
+    private lateinit var btnTranslate: Button
+    private lateinit var btnPractice: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
 
-        btnNavigate = findViewById(R.id.btnNavigate)
-        btnNavigate.setOnClickListener {
+        btnTranslate = findViewById(R.id.btnTranslate)
+        btnPractice = findViewById(R.id.btnPractice)
+
+
+        btnTranslate.setOnClickListener {
             val intent = Intent(this, TranslateActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnPractice.setOnClickListener {
+            val intent = Intent(this, PracticeActivity::class.java)
             startActivity(intent)
         }
     }

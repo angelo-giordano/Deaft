@@ -26,11 +26,11 @@ import com.chaquo.python.android.AndroidPlatform
 
 class TranslateActivity : AppCompatActivity() {
 
-    private lateinit var speechRecognizer: SpeechRecognizer
     private lateinit var transcribedText: TextView
     private lateinit var startButton: Button
     private lateinit var handler: Handler
-
+    private var speechRecognizer: SpeechRecognizer? = null
+    private var recognitionThread: Thread? = null
     companion object {
         private const val RECORD_AUDIO_PERMISSION_CODE = 1
     }
@@ -72,7 +72,7 @@ class TranslateActivity : AppCompatActivity() {
 
         if (SpeechRecognizer.isRecognitionAvailable(this)) {
             speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this)
-            speechRecognizer.setRecognitionListener(object : RecognitionListener {
+            speechRecognizer?.setRecognitionListener(object : RecognitionListener {
                 override fun onResults(results: Bundle?) {
                     val matches = results?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
                     if (!matches.isNullOrEmpty()) {
@@ -108,21 +108,23 @@ class TranslateActivity : AppCompatActivity() {
         )
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "pt-BR") // Altere para o idioma desejado
 
-        val thread = Thread {
-            while (true) {
+        recognitionThread = Thread {
+            while (!Thread.interrupted()) {
                 runOnUiThread {
-                    speechRecognizer.startListening(intent)
+                    if (!isFinishing) {  // Verifique se a atividade ainda não está sendo finalizada
+                        speechRecognizer?.startListening(intent)
+                    }
                 }
 
                 // Aguarde um curto período de tempo antes de começar a ouvir novamente
                 try {
                     Thread.sleep(500) // Ajuste conforme necessário
                 } catch (e: InterruptedException) {
-                    e.printStackTrace()
+                    Thread.currentThread().interrupt()
                 }
             }
         }
-        thread.start()
+        recognitionThread?.start()
     }
 
 
@@ -144,7 +146,18 @@ class TranslateActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        speechRecognizer.destroy()
+        speechRecognizer?.destroy()
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+        stopSpeechRecognition()
+    }
+    private fun stopSpeechRecognition() {
+        recognitionThread?.interrupt()  // Pare o thread de reconhecimento
+        speechRecognizer?.stopListening()
+        speechRecognizer?.cancel()
     }
 
     private fun vibrate(milliseconds: Long) {
@@ -154,7 +167,7 @@ class TranslateActivity : AppCompatActivity() {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 // Para Android Oreo e versões mais recentes
                 vibrator.vibrate(VibrationEffect.createOneShot(milliseconds, VibrationEffect.DEFAULT_AMPLITUDE))
-                Thread.sleep(1000)
+                Thread.sleep(500)
             } else {
                 // Para versões anteriores ao Android Oreo
                 @Suppress("DEPRECATION")

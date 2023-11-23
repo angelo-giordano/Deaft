@@ -78,12 +78,26 @@ def set_vib(text):
 
     print(vibs)
     vibs_duration = []
-    for v in vibs:
-        vibs_duration.extend([200 if bit == '0' else 1000 for bit in v])
+
+    for i, el in enumerate(vibs):
+        if i != 0:
+            vibs_duration.append(10)  # Adiciona zero entre os elementos
+        for bit in el:
+            value = 300 if bit == '0' else 800
+            vibs_duration.append(value)
 
     return vibs_duration
 
 
+'''    vibs_duration = []
+    for v in vibs:
+  vibs_duration.extend([200 if bit == '0' else 1000 for bit in v])'''
+
+    #return vibs_duration
+
+
+texto = "Não certo sim"
+print(set_vib(texto))
 
 '''
 while True:

@@ -8,15 +8,23 @@
         android:id="@+id/text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome to the Menu!"
+        android:text="Menu"
         android:layout_centerInParent="true"/>
 
     <Button
-        android:id="@+id/btnNavigate"
+        android:id="@+id/btnTranslate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Traduzir"
         android:layout_below="@+id/text_view"
+        android:layout_centerInParent="true"/>
+
+    <Button
+        android:id="@+id/btnPractice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Praticar"
+        android:layout_below="@+id/btnTranslate"
         android:layout_centerInParent="true"/>
 
 </RelativeLayout>
