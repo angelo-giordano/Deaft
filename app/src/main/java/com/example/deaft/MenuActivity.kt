@@ -17,7 +17,7 @@ class MenuActivity : AppCompatActivity() {
 
 
         btnTranslate.setOnClickListener {
-            val intent = Intent(this, TranslateActivity::class.java)
+            val intent = Intent(this, LanguageSelectionActivity::class.java)
             startActivity(intent)
         }
 

@@ -42,6 +42,7 @@ class TranslateActivity : AppCompatActivity() {
         transcribedText = findViewById(R.id.text_view)
         startButton = findViewById(R.id.btn)
 
+
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
             != PackageManager.PERMISSION_GRANTED
         ) {
@@ -60,10 +61,14 @@ class TranslateActivity : AppCompatActivity() {
             true
         }
 
+        val selectedLanguage = intent.getStringExtra("lang")
+
         startButton.setOnClickListener {
-            startSpeechRecognition()
+            val nonNullLang = selectedLanguage?:""
+            startSpeechRecognition(nonNullLang)
         }
     }
+
 
     private fun initializeSpeechRecognizer() {
         if (!Python.isStarted()) {
@@ -100,13 +105,13 @@ class TranslateActivity : AppCompatActivity() {
         }
     }
 
-    private fun startSpeechRecognition() {
+    private fun startSpeechRecognition(selectedLanguage: String) {
         val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
         intent.putExtra(
             RecognizerIntent.EXTRA_LANGUAGE_MODEL,
             RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
         )
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "pt-BR") // Altere para o idioma desejado
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, selectedLanguage) // Altere para o idioma desejado
 
         recognitionThread = Thread {
             while (!Thread.interrupted()) {

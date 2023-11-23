@@ -10,8 +10,6 @@ chaquopy {
         pip {
             // A requirement specifier, with or without a version number:
             install("deep_translator")
-            install("SpeechRecognition")
-            install("sounddevice")
         }
     }
 }
