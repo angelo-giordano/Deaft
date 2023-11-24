@@ -22,14 +22,17 @@ import android.speech.SpeechRecognizer
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import com.chaquo.python.android.AndroidPlatform
+import com.google.android.material.navigation.NavigationView
+import kotlin.concurrent.thread
 
 class TranslateActivity : AppCompatActivity() {
 
-    private lateinit var transcribedText: TextView
-    private lateinit var startButton: Button
     private lateinit var handler: Handler
     private var speechRecognizer: SpeechRecognizer? = null
+    private lateinit var startButton: Button
     private var recognitionThread: Thread? = null
     companion object {
         private const val RECORD_AUDIO_PERMISSION_CODE = 1
@@ -39,9 +42,7 @@ class TranslateActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_translate)
 
-        transcribedText = findViewById(R.id.text_view)
-        startButton = findViewById(R.id.btn)
-
+        startButton = findViewById(R.id.btn_start)
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
             != PackageManager.PERMISSION_GRANTED
@@ -55,18 +56,17 @@ class TranslateActivity : AppCompatActivity() {
             initializeSpeechRecognizer()
         }
 
-        handler = Handler(Looper.getMainLooper()) {
-            val result = it.obj as String
-            updateUI(result)
-            true
-        }
-
         val selectedLanguage = intent.getStringExtra("lang")
 
         startButton.setOnClickListener {
-            val nonNullLang = selectedLanguage?:""
-            startSpeechRecognition(nonNullLang)
+            startSpeechRecognition(selectedLanguage?:"")
         }
+
+        handler = Handler(Looper.getMainLooper()) {
+            val result = it.obj as String
+            true
+        }
+
     }
 
 
@@ -81,11 +81,11 @@ class TranslateActivity : AppCompatActivity() {
                 override fun onResults(results: Bundle?) {
                     val matches = results?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
                     if (!matches.isNullOrEmpty()) {
-                        val processedText = translateToVib(matches[0])
+                        val processedText = VibrationUtil.translateToVib(matches[0])
                         processedText.forEach { element ->
-                            vibrate(element)
+                            VibrationUtil.vibrate(this@TranslateActivity, element)
+                            Thread.sleep(500)
                         }
-                        sendMessageToUI(processedText.toString())
                     }
                 }
 
@@ -133,22 +133,6 @@ class TranslateActivity : AppCompatActivity() {
     }
 
 
-    private fun translateToVib(text: String): List<Long> {
-        // Chama a função Python diretamente usando Chaquopy
-
-        return Python.getInstance().getModule("main").callAttr("set_vib", text).asList().map{ it.toLong() }
-    }
-
-    private fun sendMessageToUI(processedText: String) {
-        val message = Message.obtain()
-        message.obj = processedText
-        handler.sendMessage(message)
-    }
-
-    private fun updateUI(processedText: String) {
-        transcribedText.text = processedText
-    }
-
     override fun onDestroy() {
         super.onDestroy()
         speechRecognizer?.destroy()
@@ -165,21 +149,6 @@ class TranslateActivity : AppCompatActivity() {
         speechRecognizer?.cancel()
     }
 
-    private fun vibrate(milliseconds: Long) {
-        val vibrator: Vibrator? = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator?
-
-        if (vibrator != null && vibrator.hasVibrator()) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                // Para Android Oreo e versões mais recentes
-                vibrator.vibrate(VibrationEffect.createOneShot(milliseconds, VibrationEffect.DEFAULT_AMPLITUDE))
-                Thread.sleep(500)
-            } else {
-                // Para versões anteriores ao Android Oreo
-                @Suppress("DEPRECATION")
-                vibrator.vibrate(milliseconds)
-            }
-        }
-    }
 
     private fun isVibrationEnabled(context: Context): Boolean {
         val mode = Settings.System.getInt(context.contentResolver, Settings.System.VIBRATE_WHEN_RINGING, 0)

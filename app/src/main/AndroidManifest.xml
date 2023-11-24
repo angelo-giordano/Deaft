@@ -29,10 +29,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MenuActivity" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".TranslateActivity" />
-        <activity android:name=".PracticeActivity" />
-        <activity android:name=".LanguageSelectionActivity" />
     </application>
 
 </manifest>

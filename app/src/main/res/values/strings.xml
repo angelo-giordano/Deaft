@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Deaft</string>
     <string name="default_web_client_id">943925557163-0ne1c7alpjr1vk6htesv46qhd6jglml1.apps.googleusercontent.com</string>
+    <string name="deaft_string">Deaft</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

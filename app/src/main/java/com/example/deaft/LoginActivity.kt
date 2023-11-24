@@ -2,7 +2,6 @@ package com.example.deaft
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.Toast
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -19,6 +18,7 @@ class LoginActivity : AppCompatActivity() {
     lateinit var gso:GoogleSignInOptions
     lateinit var mAuth: FirebaseAuth
     lateinit var google_signIn: SignInButton
+    
 
     override fun onStart() {
         super.onStart()
@@ -27,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
 
         val user = mAuth.currentUser
         if (user != null) {
-            val intent = Intent(this, MenuActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }
@@ -90,7 +90,7 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    val intent= Intent(this, MenuActivity::class.java)
+                    val intent= Intent(this, MainActivity::class.java)
                     startActivity(intent)
                 } else {
                     // If sign in fails, display a message to the user.

@@ -1,19 +1,58 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
-    android:background="#ffffff">
+    android:background="@color/roxo_escuro">
 
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/google_signIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <RelativeLayout android:id="@+id/content_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_marginStart="64dp"
+            android:layout_width="91dp"
+            android:layout_height="89dp"
+            android:layout_marginTop="160dp"
+            android:src="@drawable/ic_deaft" />
+
+        <TextView
+            android:id="@+id/deaft"
+            android:layout_width="120dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="180dp"
+            android:layout_toEndOf="@+id/icon"
+            android:gravity="center"
+            android:text="@string/deaft_string"
+            android:textColor="#B347D9"
+            android:textSize="48sp"
+            android:textStyle="bold|italic" />
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/google_signIn"
+            android:layout_width="160dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="380dp" />
+
+        <TextView
+            android:layout_width="324dp"
+            android:layout_height="166dp"
+            android:layout_marginTop="500dp"
+            android:fontFamily="sans-serif"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="Sinta as Palavras!
+
+Traduza sua fala em vibrações. Toque para expressar, sinta a comunicação além das palavras. 🗣️"
+            android:textColor="@color/white"
+            android:textSize="22dp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

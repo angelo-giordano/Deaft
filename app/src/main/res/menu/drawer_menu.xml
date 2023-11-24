@@ -1,0 +1,16 @@
+<!-- drawer_menu.xml -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_item_home"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_item_recognize"
+            android:title="Reconhecer Fala" />
+        <item
+            android:id="@+id/nav_item_practice"
+            android:title="Prática" />
+    </group>
+
+</menu>
