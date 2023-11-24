@@ -1,17 +1,33 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/roxo_escuro"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:id="@+id/container1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:text="Bem-vindo à Página Inicial"
-        android:textSize="18sp" />
+        android:layout_marginTop="16dp">
+        <!-- Adicione seus componentes para o Container 1 aqui -->
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="91dp"
+            android:layout_height="89dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_deaft" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="54dp"
+            android:layout_marginStart="128dp"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:text="Perfil"
+            android:textColor="@color/cor_titulo"
+            android:textSize="48sp"
+            android:textStyle="bold|italic" />
 
-    <!-- Conteúdo específico do HomeFragment -->
+    </FrameLayout>
+</RelativeLayout>
 
-</LinearLayout>

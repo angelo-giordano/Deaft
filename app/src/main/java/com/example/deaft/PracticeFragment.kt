@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import com.chaquo.python.Python
+import com.chaquo.python.android.AndroidPlatform
 
 class PracticeFragment : Fragment() {
 
@@ -35,6 +37,7 @@ class PracticeFragment : Fragment() {
     }
 
     private fun setupPracticeFragment() {
+
         btnNao.setOnClickListener {
             performAction("não")
         }
@@ -53,6 +56,10 @@ class PracticeFragment : Fragment() {
     }
 
     private fun performAction(inputText: String) {
+        if (!Python.isStarted()) {
+            Python.start(AndroidPlatform(requireContext()))
+        }
+
         val processedText = VibrationUtil.translateToVib(inputText)
         processedText.forEach { element ->
             VibrationUtil.vibrate(requireContext(), element)

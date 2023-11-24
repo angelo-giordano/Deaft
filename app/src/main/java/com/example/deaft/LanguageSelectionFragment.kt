@@ -32,10 +32,10 @@ class LanguageSelectionFragment : Fragment() {
         btnSelectLanguage = view.findViewById(R.id.btn_select_language)
 
         // Lógica específica do RecognizeFragment
-        setupRecognizeFragment()
+        setupLanguageSelectionFragment()
     }
 
-    private fun setupRecognizeFragment() {
+    private fun setupLanguageSelectionFragment() {
         // Implemente a lógica específica do RecognizeFragment aqui
         //textViewRecognize.text = "Esta é a tela Recognize!"
         // ...

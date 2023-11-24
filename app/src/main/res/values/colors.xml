@@ -13,6 +13,9 @@
 
     <color name="roxo_escuro">#490749</color>
     <color name="_bg__custom_button_ek1_color">#000000</color>
+    <color name="cor_titulo">#CF68F3</color>
+    <color name="cor_botao_texto">#2B242F</color>
+    <color name="cor_botao">#E9D6EC</color>
     <color name="violeta">#903CAE</color>
     <color name="deaft_color">#000000</color>
 </resources>

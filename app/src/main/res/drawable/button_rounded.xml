@@ -1,0 +1,8 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <corners android:radius="20dp" /> <!-- Ajuste o raio conforme necessário para obter a curvatura desejada -->
+
+    <solid android:color="@color/cor_botao" /> <!-- Cor de fundo do botão -->
+
+</shape>

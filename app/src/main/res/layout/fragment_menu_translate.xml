@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!-- activity_menu.xml -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:background="@color/roxo_escuro"
@@ -23,32 +23,42 @@
             android:layout_marginStart="128dp"
             android:layout_marginTop="32dp"
             android:gravity="center"
-            android:text="Vibração"
+            android:text="Não sei"
             android:textColor="@color/cor_titulo"
             android:textSize="48sp"
             android:textStyle="bold|italic" />
 
     </FrameLayout>
 
-    <Spinner
-        android:id="@+id/spinner_languages"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp" />
 
     <Button
-        android:id="@+id/btn_select_language"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/spinner_languages"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
+        android:id="@+id/btn_select_vibration"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_below="@id/container1"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="64dp"
         android:background="@drawable/button_rounded"
-        android:textColor="#373737"
-        android:text="Selecionar"/>
+        android:text="Tradução"
+        android:textColor="@color/cor_botao_texto" />
+
+    <Button
+        android:id="@+id/btn_select_dic_com"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_below="@id/container1"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="24dp"
+        android:layout_toEndOf="@+id/btn_select_vibration"
+        android:background="@drawable/button_rounded"
+        android:gravity="center"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:text="Dicionário da Comunidade"
+        android:textColor="@color/cor_botao_texto" />
+
 
 </RelativeLayout>

@@ -1,53 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@color/roxo_escuro">
+    android:background="@color/roxo_escuro"
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:id="@+id/container1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginBottom="36dp"
-        android:text="Praticar"
-        android:textAlignment="center"
-        android:textSize="32dp"/>
+        android:layout_marginTop="16dp">
+        <!-- Adicione seus componentes para o Container 1 aqui -->
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="91dp"
+            android:layout_height="89dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_deaft" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="54dp"
+            android:layout_marginStart="128dp"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:text="Praticar"
+            android:textColor="@color/cor_titulo"
+            android:textSize="48sp"
+            android:textStyle="bold|italic" />
 
+    </FrameLayout>
 
     <Button
         android:id="@+id/btnSim"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sim" />
+        android:layout_below="@id/container1"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/button_rounded"
+        android:text="Sim"
+        android:textColor="@color/cor_botao_texto" />
+
 
     <Button
         android:id="@+id/btnNao"
+        android:layout_below="@id/btnSim"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="24dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Não" />
+        android:background="@drawable/button_rounded"
+        android:text="Não"
+        android:textColor="@color/cor_botao_texto" />
+
 
     <Button
         android:id="@+id/btnTalvez"
+        android:layout_below="@id/btnNao"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="24dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Talvez" />
+        android:background="@drawable/button_rounded"
+        android:text="Talvez"
+        android:textColor="@color/cor_botao_texto" />
 
     <Button
         android:id="@+id/btnTudo"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_below="@id/btnTalvez"
+        android:layout_marginTop="24dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tudo" />
+        android:background="@drawable/button_rounded"
+        android:text="Tudo"
+        android:textColor="@color/cor_botao_texto" />
 
     <Button
         android:id="@+id/btnCerto"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_below="@id/btnTudo"
+        android:layout_marginTop="24dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Certo" />
+        android:background="@drawable/button_rounded"
+        android:text="Certo"
+        android:textColor="@color/cor_botao_texto" />
 
 
-</LinearLayout>
+</RelativeLayout>
