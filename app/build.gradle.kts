@@ -92,4 +92,6 @@ dependencies {
     androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
 }

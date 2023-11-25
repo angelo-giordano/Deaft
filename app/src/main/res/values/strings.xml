@@ -5,5 +5,34 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_dic_com">DicComActivity</string>
+    <string name="comunicacao">Comunicação</string>
+    <string name="procurar">Procurar</string>
+    <string name="praticar">Praticar</string>
+    <string name="certo">Certo</string>
+    <string name="nao">Não</string>
+    <string name="sim">Sim</string>
+    <string name="talvez">Talvez</string>
+    <string name="tudo">Tudo</string>
+    <string name="icone_desc">Ícone do aplicativo, uma orelha</string>
+    <string name="dic_comunidade">Dicionário da Comunidade</string>
+    <string name="Traducao">Tradução</string>
+    <string name="libras">Libras</string>
+    <string name="digite_a_palavra_que_deseja_procurar">Digite a palavra que deseja procurar</string>
+    <string name="vibracao">Vibração</string>
+    <string name="selecionar">Selecionar</string>
+    <string name="selecione_a_l_ngua_a_qual_deseja_reconhecer_a_fala">Selecione a língua a qual deseja reconhecer a fala</string>
+    <string name="perfil">Perfil</string>
+    <string name="foto_de_perfil">Foto de perfil</string>
+    <string name="editar_perfil">Editar Perfil</string>
+    <string name="nome">Nome</string>
+    <string name="nome_de_usu_rio">Nome de Usuário</string>
+    <string name="sobre_voc">Sobre você...</string>
+    <string name="bot_o_para_adicionar_amigos">Botão para adicionar amigos</string>
+    <string name="bot_o_de_comunidade">Botão de comunidade</string>
+    <string name="escutando">Escutando...</string>
+    <string name="vibra_o">Vibração</string>
+    <string name="anima_o_de_microfone_funcionando">Animação de microfone funcionando</string>
+    <string name="texto_inicial">Sinta as Palavras! Traduza sua fala em vibrações. Toque para expressar, sinta a comunicação além das palavras. 🗣️</string>
+    <string name="dicion_rio">Dicionário</string>
 
 </resources>

@@ -19,6 +19,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.speech.RecognitionListener
 import android.speech.SpeechRecognizer
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -27,12 +28,11 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.chaquo.python.android.AndroidPlatform
 import com.google.android.material.navigation.NavigationView
 import kotlin.concurrent.thread
-
+import com.bumptech.glide.Glide
 class TranslateActivity : AppCompatActivity() {
 
     private lateinit var handler: Handler
     private var speechRecognizer: SpeechRecognizer? = null
-    private lateinit var startButton: Button
     private var recognitionThread: Thread? = null
     companion object {
         private const val RECORD_AUDIO_PERMISSION_CODE = 1
@@ -41,8 +41,6 @@ class TranslateActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_translate)
-
-        startButton = findViewById(R.id.btn_start)
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
             != PackageManager.PERMISSION_GRANTED
@@ -57,10 +55,13 @@ class TranslateActivity : AppCompatActivity() {
         }
 
         val selectedLanguage = intent.getStringExtra("lang")
+        val gifImageView: ImageView = findViewById(R.id.gifImageView)
 
-        startButton.setOnClickListener {
-            startSpeechRecognition(selectedLanguage?:"")
-        }
+        Glide.with(this)
+            .asGif()
+            .load("https://assets-v2.lottiefiles.com/a/78a37ef6-1186-11ee-bb94-675733c8ad9a/fefZso2h91.gif")
+            .into(gifImageView)
+        startSpeechRecognition(selectedLanguage?:"")
 
         handler = Handler(Looper.getMainLooper()) {
             val result = it.obj as String

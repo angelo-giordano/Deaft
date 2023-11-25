@@ -16,16 +16,17 @@
             android:layout_height="89dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:contentDescription="@string/icone_desc"
             android:src="@drawable/ic_deaft" />
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="54dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="128dp"
             android:layout_marginTop="32dp"
             android:gravity="center"
-            android:text="Não sei"
+            android:text="@string/comunicacao"
             android:textColor="@color/cor_titulo"
-            android:textSize="48sp"
+            android:textSize="44sp"
             android:textStyle="bold|italic" />
 
     </FrameLayout>
@@ -40,24 +41,32 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="64dp"
         android:background="@drawable/button_rounded"
-        android:text="Tradução"
+        android:text="@string/Traducao"
         android:textColor="@color/cor_botao_texto" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@+id/btn_select_vibration"
+        android:background="#000000" />
 
     <Button
         android:id="@+id/btn_select_dic_com"
+
         android:layout_width="175dp"
         android:layout_height="175dp"
         android:layout_below="@id/container1"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="24dp"
-        android:layout_toEndOf="@+id/btn_select_vibration"
+        android:layout_toStartOf="@+id/divider"
         android:background="@drawable/button_rounded"
         android:gravity="center"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
-        android:text="Dicionário da Comunidade"
+        android:text="@string/dic_comunidade"
         android:textColor="@color/cor_botao_texto" />
 
 

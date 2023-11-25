@@ -16,18 +16,127 @@
             android:layout_height="89dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:contentDescription="@string/icone_desc"
             android:src="@drawable/ic_deaft" />
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="54dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="128dp"
             android:layout_marginTop="32dp"
             android:gravity="center"
-            android:text="Perfil"
+            android:text="@string/perfil"
             android:textColor="@color/cor_titulo"
             android:textSize="48sp"
             android:textStyle="bold|italic" />
 
     </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/containerProfileImage"
+        android:layout_width="358dp"
+        android:layout_height="207dp"
+        android:layout_below="@+id/container1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp">
+
+        <!-- Foto do Perfil -->
+
+        <!-- Nome do Usuário -->
+
+        <ImageView
+            android:id="@+id/imageProfile"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rounded_image"
+            android:contentDescription="@string/foto_de_perfil"
+            android:scaleType="centerCrop"
+            android:src="@drawable/baseline_person_24" />
+
+        <TextView
+            android:id="@+id/textName"
+            android:layout_width="167dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="56dp"
+            android:background="@drawable/text_rounded"
+            android:text="@string/nome"
+            android:textAlignment="center"
+            android:textColor="@color/cor_botao_texto"
+            android:fontFamily="sans-serif"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textUsername"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="88dp"
+            android:textAlignment="center"
+            android:background="@drawable/text_rounded"
+            android:textColor="@color/cor_botao_texto"
+            android:text="@string/nome_de_usu_rio"
+            android:fontFamily="sans-serif"
+            android:textSize="16sp" />
+    </FrameLayout>
+
+
+
+    <!-- Descrição -->
+    <TextView
+        android:id="@+id/textDescription"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/containerProfileImage"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/text_rounded"
+        android:gravity="center"
+        android:text="@string/sobre_voc"
+        android:textColor="@color/cor_botao_texto"
+        android:textSize="16sp" />
+
+    <!-- Botão de Editar Perfil -->
+    <Button
+        android:id="@+id/btnEditProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textDescription"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="156dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_rounded"
+        android:text="@string/editar_perfil"
+        android:textAllCaps="false"
+        android:textColor="@color/cor_botao_texto" />
+
+    <Button
+        android:id="@+id/btnAddFriend"
+        android:layout_width="98dp"
+        android:layout_height="95dp"
+        android:layout_below="@+id/btnEditProfile"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="96dp"
+        android:background="@drawable/ic_add_friend_foreground"
+        android:contentDescription="@string/bot_o_para_adicionar_amigos"
+        android:backgroundTint="@color/cor_botao" />
+
+    <Button
+        android:id="@+id/btnComunity"
+        android:layout_width="118dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnEditProfile"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="32dp"
+        android:contentDescription="@string/bot_o_de_comunidade"
+        android:background="@drawable/ic_group_foreground" />
+
 </RelativeLayout>
 

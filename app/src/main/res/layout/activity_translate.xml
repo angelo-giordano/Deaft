@@ -1,23 +1,57 @@
 <!-- activity_translate.xml -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
-    android:padding="16dp"
     android:background="@color/roxo_escuro"
     tools:context=".TranslateActivity">
 
-    <!-- Adicione elementos de layout conforme necessário para a tela de reconhecimento de fala -->
+    <FrameLayout
+        android:id="@+id/container1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+        <!-- Adicione seus componentes para o Container 1 aqui -->
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="91dp"
+            android:layout_height="89dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/icone_desc"
+            android:src="@drawable/ic_deaft" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="128dp"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:text="@string/vibra_o"
+            android:textColor="@color/cor_titulo"
+            android:textSize="48sp"
+            android:textStyle="bold|italic" />
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/gifImageView"
+        android:layout_width="268dp"
+        android:layout_height="222dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="220dp"
+        android:scaleType="fitCenter"
+        android:contentDescription="@string/anima_o_de_microfone_funcionando"
+         />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tela de Reconhecimento de Fala"
-        android:textSize="18sp"/>
-    <Button
-        android:id="@+id/btn_start"
-        android:text="Traduzir"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-</LinearLayout>
+        android:layout_below="@+id/gifImageView"
+        android:layout_alignStart="@+id/gifImageView"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="23dp"
+        android:text="@string/escutando"
+        android:textColor="@color/cor_botao"
+        android:textSize="18sp" />
+</RelativeLayout>

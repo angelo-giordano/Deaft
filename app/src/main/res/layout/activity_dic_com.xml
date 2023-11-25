@@ -18,14 +18,15 @@
             android:layout_height="89dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:contentDescription="@string/icone_desc"
             android:src="@drawable/ic_deaft" />
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="54dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="128dp"
             android:layout_marginTop="32dp"
             android:gravity="center"
-            android:text="Dicionário"
+            android:text="@string/dicion_rio"
             android:textColor="@color/cor_titulo"
             android:textSize="48sp"
             android:textStyle="bold|italic" />

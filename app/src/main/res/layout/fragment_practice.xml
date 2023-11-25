@@ -16,14 +16,15 @@
             android:layout_height="89dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:contentDescription="@string/icone_desc"
             android:src="@drawable/ic_deaft" />
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="54dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="128dp"
             android:layout_marginTop="32dp"
             android:gravity="center"
-            android:text="Praticar"
+            android:text="@string/praticar"
             android:textColor="@color/cor_titulo"
             android:textSize="48sp"
             android:textStyle="bold|italic" />
@@ -37,11 +38,11 @@
         android:layout_below="@id/container1"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp"
         android:layout_marginTop="64dp"
         android:background="@drawable/button_rounded"
-        android:text="Sim"
+        android:text="@string/sim"
         android:textColor="@color/cor_botao_texto" />
 
 
@@ -50,13 +51,13 @@
         android:layout_below="@id/btnSim"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp"
         android:layout_marginTop="24dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/button_rounded"
-        android:text="Não"
+        android:text="@string/nao"
         android:textColor="@color/cor_botao_texto" />
 
 
@@ -65,41 +66,41 @@
         android:layout_below="@id/btnNao"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp"
         android:layout_marginTop="24dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/button_rounded"
-        android:text="Talvez"
+        android:text="@string/talvez"
         android:textColor="@color/cor_botao_texto" />
 
     <Button
         android:id="@+id/btnTudo"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp"
         android:layout_below="@id/btnTalvez"
         android:layout_marginTop="24dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/button_rounded"
-        android:text="Tudo"
+        android:text="@string/tudo"
         android:textColor="@color/cor_botao_texto" />
 
     <Button
         android:id="@+id/btnCerto"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp"
         android:layout_below="@id/btnTudo"
         android:layout_marginTop="24dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/button_rounded"
-        android:text="Certo"
+        android:text="@string/certo"
         android:textColor="@color/cor_botao_texto" />
 
 

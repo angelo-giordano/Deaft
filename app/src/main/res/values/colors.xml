@@ -17,5 +17,7 @@
     <color name="cor_botao_texto">#2B242F</color>
     <color name="cor_botao">#E9D6EC</color>
     <color name="violeta">#903CAE</color>
+    <color name="spinner_back">#9891D0</color>
+    <color name="spinner_text">#421F51</color>
     <color name="deaft_color">#000000</color>
 </resources>
