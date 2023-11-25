@@ -38,15 +38,17 @@
             android:id="@+id/google_signIn"
             android:layout_width="160dp"
             android:layout_height="80dp"
+            android:layout_below="@+id/icon"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="380dp" />
+            android:layout_marginTop="131dp" />
 
         <TextView
             android:layout_width="324dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="500dp"
-            android:fontFamily="sans-serif"
+            android:layout_below="@+id/google_signIn"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="56dp"
+            android:fontFamily="sans-serif"
             android:gravity="center"
             android:text="@string/texto_inicial"
             android:textColor="@color/white"

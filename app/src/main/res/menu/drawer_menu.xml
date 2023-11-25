@@ -4,10 +4,10 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_item_home"
-            android:title="Home" />
+            android:title="Perfil" />
         <item
             android:id="@+id/nav_item_translate"
-            android:title="Reconhecer Fala" />
+            android:title="Comunicação" />
         <item
             android:id="@+id/nav_item_practice"
             android:title="Prática" />
