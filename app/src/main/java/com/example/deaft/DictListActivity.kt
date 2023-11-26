@@ -31,7 +31,7 @@ class DictListActivity: AppCompatActivity() {
 
         databaseReference = FirebaseDatabase.getInstance().getReference("vibracoes-comunidade")
 
-        itemAdapter = DictAdapter(itemList)
+        itemAdapter = DictAdapter(itemList, this)
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = itemAdapter
@@ -39,6 +39,7 @@ class DictListActivity: AppCompatActivity() {
         btnSelectAdd.setOnClickListener {
             val intent = Intent(this, DictAddActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
         listComunityWords()
@@ -57,8 +58,6 @@ class DictListActivity: AppCompatActivity() {
                         words.add(key)
                     }
                 }
-                Log.d("DictListActivity", "Tamanho da lista: ${itemList}")
-                Log.d("DictListActivity", "Tamanho da lista: ${words}")
 
                 if (words.size == 1 && words[0] == "0") {
                     words[0] = "Não existem palavras cadastradas no momento."

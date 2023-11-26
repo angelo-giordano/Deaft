@@ -1,11 +1,9 @@
-#import sounddevice
-#import speech_recognition as sr
 from deep_translator import GoogleTranslator
 
 
 TARGET_LANGUAGES = {"russo": "ru-RU", "francês": "fr-FR", "inglês": "en-US", "alemão": "de-DE", "mandarim": "zh-CN", "polonês": "pl", "português": "pt-BR", "espanhol": "es-ES", "japonês": "ja", "coreano": "ko"}
 
-WORDS = {"não":'0', "sim": '1', "talvez": '01', "tudo": '011', "certo": '00'}
+WORDS = {"não":'0', "sim": '1', "talvez": '01', "tudo": '011', "certo": '00', "oi": "11", "tchau": "010"}
 
 
 def define_language(lang):
@@ -44,10 +42,23 @@ def set_vib(text):
 
     return vibs_duration
 
+def set_vib_dict(text):
+    print(text)
+    vibs_duration = []
 
+    for i, el in enumerate(text):
+        if i != 0:
+            vibs_duration.append(10)  # Adiciona zero entre os elementos
+        for bit in el:
+            value = 300 if bit == '0' else 800
+            vibs_duration.append(value)
+
+    return vibs_duration
 
 texto = "Não certo sim"
 print(set_vib(texto))
+texto = "010"
+print(set_vib_dict(texto))
 
 '''
 while True:

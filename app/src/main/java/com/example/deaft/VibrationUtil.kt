@@ -32,5 +32,9 @@ class VibrationUtil {
                 }
             }
         }
+        suspend fun translateToVibDict(text: String): List<Long> = withContext(Dispatchers.IO) {
+            Python.getInstance().getModule("main").callAttr("set_vib_dict", text).asList()
+                .map { it.toLong() }
+        }
     }
 }
