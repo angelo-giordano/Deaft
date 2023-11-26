@@ -9,20 +9,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp">
-        <!-- Adicione seus componentes para o Container 1 aqui -->
-        <ImageView
-            android:id="@+id/icon"
-            android:layout_width="91dp"
-            android:layout_height="89dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:contentDescription="@string/icone_desc"
-            android:src="@drawable/ic_deaft" />
+
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="128dp"
-            android:layout_marginTop="32dp"
+            android:layout_gravity="center"
             android:gravity="center"
             android:text="@string/aprendizado"
             android:textColor="@color/cor_titulo"
@@ -43,6 +35,7 @@
         android:layout_marginTop="64dp"
         android:background="@drawable/button_rounded"
         android:text="@string/aprender"
+        android:textSize="@dimen/texto_botao"
         android:textColor="@color/cor_botao_texto" />
 
     <Button
@@ -57,7 +50,10 @@
         android:layout_height="wrap_content"
         android:background="@drawable/button_rounded"
         android:text="@string/reconhecer"
+        android:textSize="@dimen/texto_botao"
         android:textColor="@color/cor_botao_texto" />
+
+
 
 
 </RelativeLayout>

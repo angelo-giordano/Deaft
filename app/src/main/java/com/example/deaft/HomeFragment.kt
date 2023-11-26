@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import java.util.Calendar
 
 class HomeFragment : Fragment() {
 
@@ -25,13 +27,10 @@ class HomeFragment : Fragment() {
 
         if (user != null) {
             // Obtém o nome do usuário
-            val nomeUsuario = user.displayName
 
             // Atualiza uma TextView (substitua com o ID correto do seu TextView)
             val textViewNameUser: TextView = view.findViewById(R.id.textName)
-            val textViewEmailUser: TextView = view.findViewById(R.id.textUsername)
             textViewNameUser.setText(user.displayName)
-            textViewEmailUser.setText(user.email)
         }
 
         // Lógica específica do HomeFragment
@@ -42,6 +41,17 @@ class HomeFragment : Fragment() {
         // Implemente a lógica específica do HomeFragment aqui
         //textViewHome.text = "Bem-vindo à tela Home!"
         // ...
+    }
+
+    fun calcularIdade(dataNascimentoMillis: Long): Int {
+        val hoje = Calendar.getInstance().time
+        val diferenca = hoje.time - dataNascimentoMillis
+
+        val idade = Calendar.getInstance().apply {
+            timeInMillis = diferenca
+        }.get(Calendar.YEAR) - 1970
+
+        return idade
     }
 }
 

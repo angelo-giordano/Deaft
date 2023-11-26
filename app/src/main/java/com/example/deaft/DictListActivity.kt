@@ -6,6 +6,7 @@ import android.os.RemoteCallbackList
 import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.DataSnapshot
@@ -35,6 +36,17 @@ class DictListActivity: AppCompatActivity() {
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = itemAdapter
+
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        toolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
 
         btnSelectAdd.setOnClickListener {
             val intent = Intent(this, DictAddActivity::class.java)
@@ -73,7 +85,7 @@ class DictListActivity: AppCompatActivity() {
 
 
             override fun onCancelled(error: DatabaseError) {
-                Log.e("MainActivity", "Erro ao consultar dados: ${error.message}")
+                Log.e("DictListActivity", "Erro ao consultar dados: ${error.message}")
             }
         })
     }

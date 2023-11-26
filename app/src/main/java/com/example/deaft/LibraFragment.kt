@@ -1,6 +1,7 @@
 package com.example.deaft
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -68,7 +69,7 @@ class LibraFragment : Fragment() {
                 }
 
                 override fun onFailure(t: Throwable) {
-                    // Lidar com falhas, se necessário
+                    inputText.setText("Faiou")
                 }
             }, MoreExecutors.directExecutor())
         }
@@ -90,7 +91,7 @@ class LibraFragment : Fragment() {
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
-                // Lidar com erros de leitura do banco de dados, se necessário
+                inputText.setText("Faiou o banco!")
             }
         })
     }
@@ -106,8 +107,13 @@ class LibraFragment : Fragment() {
                 // Verificar se o nó existe
                 if (dataSnapshot.exists()) {
                     // Obter o URL do GIF
-                    val gifUrl = dataSnapshot.getValue(String::class.java)
-                    future.set(gifUrl)
+                    val gifUrl = dataSnapshot.getValue()
+
+                    if (gifUrl is String) {
+                        future.set(gifUrl)
+                    } else {
+                        inputText.setText("")
+                    }
                 } else {
                     // O nó com o ID fornecido não existe
                     future.set(null)

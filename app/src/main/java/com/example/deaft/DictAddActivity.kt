@@ -6,6 +6,7 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -21,6 +22,7 @@ class DictAddActivity: AppCompatActivity() {
 
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_word)
@@ -29,6 +31,17 @@ class DictAddActivity: AppCompatActivity() {
         btnAdd = findViewById(R.id.btn_add_word)
         databaseReference = FirebaseDatabase.getInstance().getReference("vibracoes-opcoes")
         databaseReferenceUser = FirebaseDatabase.getInstance().getReference("vibracoes-comunidade")
+
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        toolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
 
         loadOptions()
 
@@ -80,8 +93,8 @@ class DictAddActivity: AppCompatActivity() {
                 val vibration = snapshot.getValue(String::class.java)
 
                 if (vibration != null) {
-                    val newKey = databaseReferenceUser.child(word)
-                    newKey.setValue(vibration)
+                    val newKeyUser = databaseReferenceUser.child(word)
+                    newKeyUser.setValue(vibration)
                         .addOnSuccessListener {
                             // Sucesso ao adicionar o item à tabela de destino
                             // Adicione qualquer lógica adicional aqui
@@ -89,7 +102,7 @@ class DictAddActivity: AppCompatActivity() {
                         .addOnFailureListener {
                             // Falha ao adicionar o item à tabela de destino
                             // Trate a falha conforme necessário
-                }
+                    }
             } else {
 
             }

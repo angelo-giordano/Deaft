@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.ContextCompat
 import com.chaquo.python.android.AndroidPlatform
@@ -32,7 +33,6 @@ class RecognizeActivity : AppCompatActivity() {
     private lateinit var btnCheckTranscription: Button
     private lateinit var btnExit: Button
     private lateinit var btnNextWord: Button
-    private lateinit var databaseReference: DatabaseReference
     private var currentWord: String = ""
     private lateinit var textViewWordToTranscribe: TextView
 
@@ -45,9 +45,18 @@ class RecognizeActivity : AppCompatActivity() {
         btnCheckTranscription = findViewById(R.id.btnCheckTranscription)
         btnExit = findViewById(R.id.btnExit)
         btnNextWord = findViewById(R.id.btnNextWord)
-        databaseReference = FirebaseDatabase.getInstance().getReference("vibracoes")
         textViewWordToTranscribe = findViewById(R.id.viewAnswer)
 
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        toolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
 
         getNextWord()
 
@@ -72,21 +81,32 @@ class RecognizeActivity : AppCompatActivity() {
     }
 
     private fun getNextWord() {
-        databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                GlobalScope.launch(Dispatchers.Main) {
-                    val wordSnapshot = dataSnapshot.children.mapNotNull { it.key }
-                    val words = wordSnapshot.random()
+        val databaseReferenceGeneral = FirebaseDatabase.getInstance().getReference("vibracoes")
+        val databaseReferenceComunity = FirebaseDatabase.getInstance().getReference("vibracoes-comunidade")
+        databaseReferenceGeneral.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot1: DataSnapshot) {
+                val keysGeneral = dataSnapshot1.children.map { it.key }
+                databaseReferenceComunity.addListenerForSingleValueEvent(object :
+                    ValueEventListener {
+                    override fun onDataChange(dataSnapshot2: DataSnapshot) {
+                        val keysComunity = dataSnapshot2.children.mapNotNull { it.key }.filter { it != "0" }
+                        val unionKeys = keysGeneral.union(keysComunity)
+                        GlobalScope.launch(Dispatchers.Main) {
+                            currentWord = unionKeys.randomOrNull() ?: "Foi nulo"
 
-                    if (!words.isNullOrBlank()) {
-                        currentWord = words
-                        performVibration(currentWord)
+                            if (!currentWord.isNullOrBlank()) {
+                                performVibration(currentWord)
+                                editTextUserTranscription.text.clear()
+                            }
+                        }
 
-                        editTextUserTranscription.text.clear()
-                    }
                 }
+                    override fun onCancelled(databaseError: DatabaseError) {
+                        // Lidar com erros de leitura do banco de dados, se necessário
+                        // Note que você pode querer tratar erros aqui, dependendo dos requisitos do seu aplicativo
+                    }
+                })
             }
-
             override fun onCancelled(databaseError: DatabaseError) {
                 // Lidar com erros de leitura do banco de dados, se necessário
                 // Note que você pode querer tratar erros aqui, dependendo dos requisitos do seu aplicativo
@@ -123,7 +143,7 @@ class RecognizeActivity : AppCompatActivity() {
             val processedText = VibrationUtil.translateToVib(text)
             processedText.forEach { element ->
                 VibrationUtil.vibrate(this@RecognizeActivity, element)
-                delay(500)
+                delay(700)
             }
         }
     }

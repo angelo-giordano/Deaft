@@ -93,7 +93,7 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    val intent= Intent(this, MainActivity::class.java)
+                    val intent=Intent(this, MainActivity::class.java)
                     startActivity(intent)
                 } else {
                     // If sign in fails, display a message to the user.
@@ -101,5 +101,4 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
     }
-
 }

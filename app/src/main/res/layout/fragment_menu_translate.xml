@@ -12,21 +12,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp">
         <!-- Adicione seus componentes para o Container 1 aqui -->
-        <ImageView
-            android:id="@+id/icon"
-            android:layout_width="91dp"
-            android:layout_height="89dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:contentDescription="@string/icone_desc"
-            android:src="@drawable/ic_deaft" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="128dp"
-            android:layout_marginTop="32dp"
+            android:layout_gravity="center"
             android:gravity="center"
-            android:layout_marginEnd="18dp"
             android:text="@string/comunicacao"
             android:textColor="@color/cor_titulo"
             android:textSize="@dimen/titulo_grande"
@@ -41,13 +32,14 @@
 
         <Button
             android:id="@+id/btn_select_vibration"
-            android:layout_width="175dp"
-            android:layout_height="175dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:layout_marginTop="189dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="24dp"
             android:background="@drawable/button_rounded"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="40dp"
             android:text="@string/Traducao"
+            android:textSize="@dimen/texto_botao"
             android:textColor="@color/cor_botao_texto"
             app:layout_constraintEnd_toStartOf="@+id/divider"
             app:layout_constraintStart_toStartOf="parent"
@@ -64,16 +56,17 @@
 
         <Button
             android:id="@+id/btn_select_dic_com"
-            android:layout_width="175dp"
-            android:layout_height="175dp"
-            android:layout_marginStart="16dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="0dp"
             android:background="@drawable/button_rounded"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
             android:text="@string/dic_comunidade"
             android:textColor="@color/cor_botao_texto"
-            android:layout_marginEnd="32dp"
+            android:textSize="@dimen/texto_botao"
+            android:layout_marginEnd="40dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.272"
             app:layout_constraintStart_toEndOf="@+id/divider"
