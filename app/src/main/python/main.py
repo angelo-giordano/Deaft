@@ -1,10 +1,9 @@
 from deep_translator import GoogleTranslator
-
+import json
 
 TARGET_LANGUAGES = {"russo": "ru-RU", "francês": "fr-FR", "inglês": "en-US", "alemão": "de-DE", "mandarim": "zh-CN", "polonês": "pl", "português": "pt-BR", "espanhol": "es-ES", "japonês": "ja", "coreano": "ko"}
 
 WORDS = {"não":'0', "sim": '1', "talvez": '01', "tudo": '011', "certo": '00', "oi": "11", "tchau": "010"}
-
 
 def define_language(lang):
     lang = lang.lower()
@@ -55,10 +54,6 @@ def set_vib_dict(text):
 
     return vibs_duration
 
-texto = "Não certo sim"
-print(set_vib(texto))
-texto = "010"
-print(set_vib_dict(texto))
 
 '''
 while True:
