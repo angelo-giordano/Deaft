@@ -35,7 +35,7 @@ class MenuTranslateFragment: Fragment() {
             startActivity(intent)
         }
         btnSelectLibras.setOnClickListener {
-            val intent = Intent(requireContext(), DicComActivity::class.java)
+            val intent = Intent(requireContext(), DictListActivity::class.java)
             startActivity(intent)
         }
     }

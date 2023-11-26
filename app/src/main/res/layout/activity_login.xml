@@ -31,7 +31,7 @@
             android:gravity="center"
             android:text="@string/deaft_string"
             android:textColor="#B347D9"
-            android:textSize="48sp"
+            android:textSize="@dimen/titulo_grande"
             android:textStyle="bold|italic" />
 
         <com.google.android.gms.common.SignInButton

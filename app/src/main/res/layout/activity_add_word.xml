@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/roxo_escuro"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".DictAddActivity">>
 
     <FrameLayout
         android:id="@+id/container1"
@@ -24,40 +26,31 @@
             android:layout_marginStart="128dp"
             android:layout_marginTop="32dp"
             android:gravity="center"
-            android:text="@string/aprendizado"
+            android:text="Adicionar"
             android:textColor="@color/cor_titulo"
             android:textSize="@dimen/titulo_grande"
             android:textStyle="bold|italic" />
 
     </FrameLayout>
 
-    <Button
-        android:id="@+id/btn_select_learn"
+    <Spinner
+        android:id="@+id/spinner_words"
+        style="@style/SpinnerStyle"
+        android:layout_centerHorizontal="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/container1"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="48dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginTop="64dp"
-        android:background="@drawable/button_rounded"
-        android:text="@string/aprender"
-        android:textColor="@color/cor_botao_texto" />
+        android:layout_height="48dp"
+        android:layout_below="@+id/container1"
+        android:layout_marginTop="180dp"
+        android:layout_marginEnd="32dp" />
 
     <Button
-        android:id="@+id/btn_select_recognize"
-        android:layout_below="@id/btn_select_learn"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="48dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginTop="24dp"
-        android:layout_width="match_parent"
+        android:id="@+id/btn_add_word"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/spinner_words"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
         android:background="@drawable/button_rounded"
-        android:text="@string/reconhecer"
-        android:textColor="@color/cor_botao_texto" />
-
-
+        android:textColor="@color/cor_botao_texto"
+        android:text="Adicionar"/>
 </RelativeLayout>

@@ -98,8 +98,8 @@ class RecognizeActivity : AppCompatActivity() {
     private fun getNextWordWithAnimation() {
         val intent = Intent(this, RecognizeActivity::class.java)
         val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this)
-        finish()
         startActivity(intent, options.toBundle())
+        finish()
     }
 
     private fun checkAnswer() {

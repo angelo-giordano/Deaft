@@ -29,7 +29,7 @@
             android:gravity="center"
             android:text="@string/perfil"
             android:textColor="@color/cor_titulo"
-            android:textSize="48sp"
+            android:textSize="@dimen/titulo_grande"
             android:textStyle="bold|italic" />
 
     </FrameLayout>

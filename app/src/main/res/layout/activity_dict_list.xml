@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/roxo_escuro"
-    tools:context=".DicComActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".DictListActivity">
 
     <FrameLayout
         android:id="@+id/container1"
@@ -28,8 +28,29 @@
             android:gravity="center"
             android:text="@string/dicion_rio"
             android:textColor="@color/cor_titulo"
-            android:textSize="48sp"
+            android:textSize="@dimen/titulo_grande"
             android:textStyle="bold|italic" />
 
     </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/container1"
+        android:layout_marginTop="32dp"
+        android:padding="32dp" />
+
+
+    <Button
+        android:id="@+id/btn_select_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        android:background="@color/violeta"
+        android:textColor="@color/cor_botao"
+        android:text="Adicionar" />
+
+
 </RelativeLayout>

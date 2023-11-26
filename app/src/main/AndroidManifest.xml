@@ -32,7 +32,8 @@
         <activity android:name=".MainActivity"/>
         <activity android:name=".TranslateActivity"/>
         <activity android:name=".MenuTranslateActivity"/>
-        <activity android:name=".DicComActivity"/>
+        <activity android:name=".DictAddActivity"/>
+        <activity android:name=".DictListActivity"/>
         <activity android:name=".LearnActivity"/>
         <activity android:name=".RecognizeActivity"/>
     </application>
