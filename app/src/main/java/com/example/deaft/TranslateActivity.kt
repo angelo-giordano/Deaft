@@ -29,6 +29,10 @@ import com.chaquo.python.android.AndroidPlatform
 import com.google.android.material.navigation.NavigationView
 import kotlin.concurrent.thread
 import com.bumptech.glide.Glide
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+
 class TranslateActivity : AppCompatActivity() {
 
     private lateinit var handler: Handler
@@ -67,9 +71,7 @@ class TranslateActivity : AppCompatActivity() {
             val result = it.obj as String
             true
         }
-
     }
-
 
     private fun initializeSpeechRecognizer() {
         if (!Python.isStarted()) {
@@ -82,10 +84,12 @@ class TranslateActivity : AppCompatActivity() {
                 override fun onResults(results: Bundle?) {
                     val matches = results?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
                     if (!matches.isNullOrEmpty()) {
-                        val processedText = VibrationUtil.translateToVib(matches[0])
-                        processedText.forEach { element ->
-                            VibrationUtil.vibrate(this@TranslateActivity, element)
-                            Thread.sleep(500)
+                        GlobalScope.launch {
+                            val processedText = VibrationUtil.translateToVib(matches[0])
+                            processedText.forEach { element ->
+                                VibrationUtil.vibrate(this@TranslateActivity, element)
+                                delay(500)
+                            }
                         }
                     }
                 }
@@ -124,7 +128,7 @@ class TranslateActivity : AppCompatActivity() {
 
                 // Aguarde um curto período de tempo antes de começar a ouvir novamente
                 try {
-                    Thread.sleep(500) // Ajuste conforme necessário
+                    Thread.sleep(1000) // Ajuste conforme necessário
                 } catch (e: InterruptedException) {
                     Thread.currentThread().interrupt()
                 }
@@ -150,9 +154,4 @@ class TranslateActivity : AppCompatActivity() {
         speechRecognizer?.cancel()
     }
 
-
-    private fun isVibrationEnabled(context: Context): Boolean {
-        val mode = Settings.System.getInt(context.contentResolver, Settings.System.VIBRATE_WHEN_RINGING, 0)
-        return mode != 0
-    }
 }

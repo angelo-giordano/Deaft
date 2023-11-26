@@ -10,8 +10,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-
+    <color name="green">#4CAF50</color>
     <color name="roxo_escuro">#490749</color>
+    <color name="red">#FF5252</color>
     <color name="_bg__custom_button_ek1_color">#000000</color>
     <color name="cor_titulo">#CF68F3</color>
     <color name="cor_botao_texto">#2B242F</color>

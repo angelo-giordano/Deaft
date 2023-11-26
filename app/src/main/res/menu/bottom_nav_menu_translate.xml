@@ -3,11 +3,11 @@
     <item
         android:id="@+id/fragment_vibration"
         android:icon="@drawable/outline_mic_none_24"
-        android:title="Vibração"/>
+        android:title="@string/vibracao"/>
 
     <item
         android:id="@+id/fragment_libras"
         android:icon="@drawable/baseline_book_24"
-        android:title="Libras"/>
+        android:title="@string/libras"/>
 </menu>
 

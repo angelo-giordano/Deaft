@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="@color/roxo_escuro"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
     <FrameLayout
         android:id="@+id/container1"
@@ -26,7 +24,7 @@
             android:layout_marginStart="128dp"
             android:layout_marginTop="32dp"
             android:gravity="center"
-            android:text="@string/libras"
+            android:text="@string/aprender"
             android:textColor="@color/cor_titulo"
             android:textSize="48sp"
             android:textStyle="bold|italic" />
@@ -34,7 +32,7 @@
     </FrameLayout>
 
     <AutoCompleteTextView
-        android:id="@+id/inputText"
+        android:id="@+id/inputTextLearn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/container1"
@@ -44,7 +42,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="119dp"
         android:layout_marginEnd="56dp"
-        android:hint="@string/digite_a_palavra_que_deseja_procurar"
+        android:hint="@string/digite_a_palavra_que_deseja_aprender"
         android:textColorHint="@color/cor_botao"
         android:textColor="@color/cor_botao"
         android:textSize="18sp"
@@ -54,23 +52,14 @@
         android:id="@+id/searchBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/inputText"
+        android:layout_below="@+id/inputTextLearn"
         android:layout_marginTop="56dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/button_rounded"
-        android:text="@string/procurar"
+        android:text="@string/vibrar"
         android:textAlignment="center"
         android:textColor="@color/cor_botao_texto" />
 
-    <ImageView
-        android:id="@+id/gifLibras"
-        android:layout_width="315dp"
-        android:layout_height="298dp"
-        android:layout_below="@+id/searchBtn"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="32dp"
-        android:contentDescription="@string/gif_da_palavra_em_libras"
-        android:scaleType="fitCenter" />
+
+
 </RelativeLayout>

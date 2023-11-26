@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.Deaft" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowEnterTransition">@transition/transition_words</item>
+    </style>
 
-    <style name="NoAction" parent="Theme.AppCompat.DayNight.NoActionBar" />
 
     <style name="SpinnerStyle">
         <item name="android:layout_width">match_parent</item>

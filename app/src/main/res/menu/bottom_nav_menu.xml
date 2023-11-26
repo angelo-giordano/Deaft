@@ -8,7 +8,7 @@
     <item
         android:id="@+id/fragment_menu_translate"
         android:icon="@drawable/outline_mic_none_24"
-        android:title="Traduzir"/>
+        android:title="Comunicação"/>
 
     <item
         android:id="@+id/fragment_practice"

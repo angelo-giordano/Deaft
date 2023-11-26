@@ -41,6 +41,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginEnd="24dp"
         android:layout_marginTop="56dp"
+        android:textColor="@color/cor_botao"
         android:text="@string/selecione_a_l_ngua_a_qual_deseja_reconhecer_a_fala"
         android:textSize="18sp" />
 

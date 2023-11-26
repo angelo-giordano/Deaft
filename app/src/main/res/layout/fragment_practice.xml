@@ -24,7 +24,7 @@
             android:layout_marginStart="128dp"
             android:layout_marginTop="32dp"
             android:gravity="center"
-            android:text="@string/praticar"
+            android:text="@string/aprendizado"
             android:textColor="@color/cor_titulo"
             android:textSize="48sp"
             android:textStyle="bold|italic" />
@@ -32,7 +32,7 @@
     </FrameLayout>
 
     <Button
-        android:id="@+id/btnSim"
+        android:id="@+id/btn_select_learn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/container1"
@@ -42,13 +42,12 @@
         android:layout_marginEnd="48dp"
         android:layout_marginTop="64dp"
         android:background="@drawable/button_rounded"
-        android:text="@string/sim"
+        android:text="@string/aprender"
         android:textColor="@color/cor_botao_texto" />
 
-
     <Button
-        android:id="@+id/btnNao"
-        android:layout_below="@id/btnSim"
+        android:id="@+id/btn_select_recognize"
+        android:layout_below="@id/btn_select_learn"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="48dp"
@@ -57,50 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/button_rounded"
-        android:text="@string/nao"
-        android:textColor="@color/cor_botao_texto" />
-
-
-    <Button
-        android:id="@+id/btnTalvez"
-        android:layout_below="@id/btnNao"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="48dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginTop="24dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_rounded"
-        android:text="@string/talvez"
-        android:textColor="@color/cor_botao_texto" />
-
-    <Button
-        android:id="@+id/btnTudo"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="48dp"
-        android:layout_marginEnd="48dp"
-        android:layout_below="@id/btnTalvez"
-        android:layout_marginTop="24dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_rounded"
-        android:text="@string/tudo"
-        android:textColor="@color/cor_botao_texto" />
-
-    <Button
-        android:id="@+id/btnCerto"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="48dp"
-        android:layout_marginEnd="48dp"
-        android:layout_below="@id/btnTudo"
-        android:layout_marginTop="24dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_rounded"
-        android:text="@string/certo"
+        android:text="@string/reconhecer"
         android:textColor="@color/cor_botao_texto" />
 
 

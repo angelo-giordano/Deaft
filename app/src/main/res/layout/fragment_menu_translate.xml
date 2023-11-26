@@ -1,5 +1,7 @@
 <!-- activity_menu.xml -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="@color/roxo_escuro"
     android:layout_height="match_parent">
@@ -24,6 +26,7 @@
             android:layout_marginStart="128dp"
             android:layout_marginTop="32dp"
             android:gravity="center"
+            android:layout_marginEnd="18dp"
             android:text="@string/comunicacao"
             android:textColor="@color/cor_titulo"
             android:textSize="44sp"
@@ -31,43 +34,52 @@
 
     </FrameLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btn_select_vibration"
-        android:layout_width="175dp"
-        android:layout_height="175dp"
-        android:layout_below="@id/container1"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="64dp"
-        android:background="@drawable/button_rounded"
-        android:text="@string/Traducao"
-        android:textColor="@color/cor_botao_texto" />
 
-    <View
-        android:id="@+id/divider"
-        android:layout_width="1dp"
-        android:layout_height="match_parent"
-        android:layout_centerVertical="true"
-        android:layout_toStartOf="@+id/btn_select_vibration"
-        android:background="#000000" />
+        <Button
+            android:id="@+id/btn_select_vibration"
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            android:layout_marginTop="189dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/button_rounded"
+            android:layout_marginStart="32dp"
+            android:text="@string/Traducao"
+            android:textColor="@color/cor_botao_texto"
+            app:layout_constraintEnd_toStartOf="@+id/divider"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/divider" />
 
-    <Button
-        android:id="@+id/btn_select_dic_com"
+        <View
+            android:id="@+id/divider"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        android:layout_width="175dp"
-        android:layout_height="175dp"
-        android:layout_below="@id/container1"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="24dp"
-        android:layout_toStartOf="@+id/divider"
-        android:background="@drawable/button_rounded"
-        android:gravity="center"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
-        android:text="@string/dic_comunidade"
-        android:textColor="@color/cor_botao_texto" />
+        <Button
+            android:id="@+id/btn_select_dic_com"
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/button_rounded"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="@string/dic_comunidade"
+            android:textColor="@color/cor_botao_texto"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.272"
+            app:layout_constraintStart_toEndOf="@+id/divider"
+            app:layout_constraintTop_toTopOf="@+id/btn_select_vibration" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </RelativeLayout>
+

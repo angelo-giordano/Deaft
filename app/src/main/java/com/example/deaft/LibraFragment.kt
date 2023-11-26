@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.ImageView
+import androidx.compose.ui.text.toLowerCase
 import com.bumptech.glide.Glide
 import com.google.android.material.textfield.TextInputEditText
 import com.google.common.util.concurrent.FutureCallback
@@ -52,7 +53,7 @@ class LibraFragment : Fragment() {
     private fun setupLibraFragment() {
         // Implemente a lógica específica do HomeFragment aqui
         searchBtn.setOnClickListener {
-            val gifId = inputText.text.toString()
+            val gifId = inputText.text.toString().trim().lowercase()
             val gifUrl = getGifUrlById(gifId)
 
             Futures.addCallback(gifUrl, object : FutureCallback<String?> {

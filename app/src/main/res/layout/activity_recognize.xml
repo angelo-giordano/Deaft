@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/roxo_escuro"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/container1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+        <!-- Adicione seus componentes para o Container 1 aqui -->
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="91dp"
+            android:layout_height="89dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/icone_desc"
+            android:src="@drawable/ic_deaft" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="128dp"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:text="@string/aprendizado"
+            android:textColor="@color/cor_titulo"
+            android:textSize="48sp"
+            android:textStyle="bold|italic" />
+
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/btnListenAgain"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_below="@+id/container1"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="72dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:drawableStart="@drawable/baseline_vibration_24"
+        android:gravity="center"
+        android:textColor="@color/cor_botao_texto" />
+
+
+    <EditText
+        android:id="@+id/editTextUserTranscription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnListenAgain"
+        android:layout_alignStart="@+id/btnListenAgain"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="74dp"
+        android:hint="Digite a palavra vibrada"
+        android:textColor="@color/cor_botao"
+        android:textColorHint="@color/cor_botao"
+        android:textSize="18sp"
+        android:textStyle="bold|italic" />
+
+    <Button
+        android:id="@+id/btnCheckTranscription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextUserTranscription"
+        android:layout_alignStart="@+id/editTextUserTranscription"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/button_rounded"
+        android:textColor="@color/cor_botao_texto"
+        android:text="Verificar" />
+
+    <Button
+        android:id="@+id/btnNextWord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btnCheckTranscription"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="0dp"
+        android:background="@drawable/button_rounded"
+        android:text="Próxima"
+        android:textColor="@color/cor_botao_texto" />
+
+    <Button
+        android:id="@+id/btnExit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btnCheckTranscription"
+        android:layout_marginStart="39dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="0dp"
+        android:layout_toStartOf="@+id/btnNextWord"
+        android:layout_toEndOf="@+id/btnCheckTranscription"
+        android:background="@drawable/button_rounded"
+        android:backgroundTint="@color/violeta"
+        android:text="Sair"
+        android:textColor="@color/cor_botao_texto" />
+
+    <TextView
+        android:id="@+id/viewAnswer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnNextWord"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="64dp"
+        android:layout_marginBottom="16dp"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+    />
+
+
+</RelativeLayout>
