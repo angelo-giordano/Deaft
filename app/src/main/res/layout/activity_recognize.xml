@@ -63,7 +63,7 @@
         android:layout_below="@+id/editTextUserTranscription"
         android:layout_alignStart="@+id/editTextUserTranscription"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/button_rounded"
         android:textColor="@color/cor_botao_texto"
         android:textSize="@dimen/texto_botao"
@@ -75,26 +75,11 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/btnCheckTranscription"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="64dp"
         android:layout_marginBottom="0dp"
         android:background="@drawable/button_rounded"
         android:text="Próxima"
-        android:textSize="@dimen/texto_botao"
-        android:textColor="@color/cor_botao_texto" />
-
-    <Button
-        android:id="@+id/btnExit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/btnCheckTranscription"
-        android:layout_marginStart="39dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="0dp"
-        android:layout_toStartOf="@+id/btnNextWord"
-        android:layout_toEndOf="@+id/btnCheckTranscription"
-        android:background="@drawable/button_rounded"
-        android:backgroundTint="@color/violeta"
-        android:text="Sair"
+        android:backgroundTint="@color/red"
         android:textSize="@dimen/texto_botao"
         android:textColor="@color/cor_botao_texto" />
 
@@ -108,7 +93,17 @@
         android:layout_marginBottom="16dp"
         android:textSize="24sp"
         android:textStyle="bold" />
-    />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/viewAnswer"
+        android:layout_marginTop="32dp"
+        android:gravity="center_horizontal"
+        android:layout_marginHorizontal="32dp"
+        android:text="Sinta a vibração e tente adivinhar a palavra correspondente. Desafie suas habilidades táteis!"
+        android:textColor="@color/cor_botao"
+        android:textSize="@dimen/texto_exp" />
 
 
 </RelativeLayout>

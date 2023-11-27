@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="@color/roxo_escuro"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
     <FrameLayout
         android:id="@+id/container1"
@@ -47,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/inputText"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/button_rounded"
         android:text="@string/procurar"
@@ -66,4 +64,17 @@
         android:layout_marginBottom="32dp"
         android:contentDescription="@string/gif_da_palavra_em_libras"
         android:scaleType="fitCenter" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/container1"
+        android:gravity="center"
+        android:text="Digite uma palavra e Receba um Gif em Libras."
+        android:textColor="@color/cor_botao"
+        android:textSize="@dimen/texto_exp" />
+
 </RelativeLayout>

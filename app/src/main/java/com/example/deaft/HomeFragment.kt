@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import java.util.Calendar
 
 class HomeFragment : Fragment() {
@@ -30,7 +29,7 @@ class HomeFragment : Fragment() {
 
             // Atualiza uma TextView (substitua com o ID correto do seu TextView)
             val textViewNameUser: TextView = view.findViewById(R.id.textName)
-            textViewNameUser.setText(user.displayName)
+            textViewNameUser.text = user.displayName
         }
 
         // Lógica específica do HomeFragment

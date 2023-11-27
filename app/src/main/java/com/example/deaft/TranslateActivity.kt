@@ -54,6 +54,7 @@ class TranslateActivity : AppCompatActivity() {
                 RECORD_AUDIO_PERMISSION_CODE
             )
         } else {
+            VibrationUtil.showEnableHapticFeedbackMessage(this)
             initializeSpeechRecognizer()
         }
 
@@ -75,6 +76,7 @@ class TranslateActivity : AppCompatActivity() {
         if (!Python.isStarted()) {
             Python.start(AndroidPlatform(this))
         }
+
 
         if (SpeechRecognizer.isRecognitionAvailable(this)) {
             speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this)
@@ -109,6 +111,7 @@ class TranslateActivity : AppCompatActivity() {
     }
 
     private fun startSpeechRecognition(selectedLanguage: String) {
+
         val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
         intent.putExtra(
             RecognizerIntent.EXTRA_LANGUAGE_MODEL,
@@ -120,6 +123,7 @@ class TranslateActivity : AppCompatActivity() {
             while (!Thread.interrupted()) {
                 runOnUiThread {
                     if (!isFinishing) {  // Verifique se a atividade ainda não está sendo finalizada
+                        VibrationUtil.showEnableHapticFeedbackMessage(this)
                         speechRecognizer?.startListening(intent)
                     }
                 }

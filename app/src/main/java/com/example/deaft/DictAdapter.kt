@@ -7,8 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.chaquo.python.Python
 import com.chaquo.python.android.AndroidPlatform
@@ -22,7 +20,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class DictAdapter(private val itemList: List<String>, private val context: Context) : RecyclerView.Adapter<DictAdapter.ItemViewHolder>() {
 
@@ -42,6 +39,7 @@ class DictAdapter(private val itemList: List<String>, private val context: Conte
         holder.textItem.text = currentItem
 
         holder.btnIcon.setOnClickListener {
+            VibrationUtil.showEnableHapticFeedbackMessage(context)
             CoroutineScope(Dispatchers.Main).launch {
                 processAndVibrate(context, currentItem)
             }

@@ -2,14 +2,16 @@ package com.example.deaft
 
 
 import android.os.Bundle
-import com.chaquo.python.Python
-import java.util.*
-import android.widget.Button
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.chaquo.python.Python
 import com.chaquo.python.android.AndroidPlatform
+import com.example.deaft.VibrationUtil.Companion.isHapticFeedbackEnabled
+import com.example.deaft.VibrationUtil.Companion.showEnableHapticFeedbackMessage
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -56,13 +58,16 @@ class LearnActivity : AppCompatActivity() {
             Python.start(AndroidPlatform(this))
         }
 
+        showEnableHapticFeedbackMessage(this)
         GlobalScope.launch {
+            Log.d("LearnActivity", "Tá liberado")
             val processedText = VibrationUtil.translateToVib(text)
             processedText.forEach { element ->
                 VibrationUtil.vibrate(this@LearnActivity, element)
-                delay(500)
+                delay(800)
             }
         }
+
     }
 
     private fun configureSuggestions() {

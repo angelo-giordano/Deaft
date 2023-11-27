@@ -44,8 +44,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="0dp"
-        android:background="@color/colorAccent"
-        android:textColor="@color/cor_botao"
+        android:background="@color/red"
+        android:textColor="@color/cor_botao_texto"
         android:textSize="@dimen/texto_botao"
         android:text="Adicionar" />
 

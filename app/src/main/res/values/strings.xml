@@ -3,16 +3,8 @@
     <string name="default_web_client_id">943925557163-0ne1c7alpjr1vk6htesv46qhd6jglml1.apps.googleusercontent.com</string>
     <string name="deaft_string">Deaft</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_dic_com">DicComActivity</string>
     <string name="comunicacao">Comunicação</string>
     <string name="procurar">Procurar</string>
-    <string name="praticar">Praticar</string>
-    <string name="certo">Certo</string>
-    <string name="nao">Não</string>
-    <string name="sim">Sim</string>
-    <string name="talvez">Talvez</string>
-    <string name="tudo">Tudo</string>
     <string name="icone_desc">Ícone do aplicativo, uma orelha</string>
     <string name="dic_comunidade">Dicionário da Comunidade</string>
     <string name="Traducao">Tradução</string>
@@ -25,7 +17,6 @@
     <string name="foto_de_perfil">Foto de perfil</string>
     <string name="editar_perfil">Editar Perfil</string>
     <string name="nome">Nome</string>
-    <string name="nome_de_usu_rio">Nome de Usuário</string>
     <string name="sobre_voc">Sobre você...</string>
     <string name="bot_o_para_adicionar_amigos">Botão para adicionar amigos</string>
     <string name="bot_o_de_comunidade">Botão de comunidade</string>
@@ -35,8 +26,6 @@
     <string name="texto_inicial">Sinta as Palavras! Traduza sua fala em vibrações. Toque para expressar, sinta a comunicação além das palavras. 🗣️</string>
     <string name="dicion_rio">Dicionário</string>
     <string name="gif_da_palavra_em_libras">Gif da palavra em Libras</string>
-    <string name="comunica_o">Comunicação</string>
-    <string name="reconhecer_fala">Reconhecer Fala</string>
     <string name="aprender">Aprender</string>
     <string name="reconhecer">Reconhecer</string>
     <string name="aprendizado">Aprendizado</string>

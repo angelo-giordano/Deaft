@@ -30,30 +30,44 @@
         android:layout_below="@id/container1"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="48dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginTop="64dp"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="184dp"
+        android:layout_marginEnd="40dp"
         android:background="@drawable/button_rounded"
+        android:textColor="@color/cor_botao_texto"
+        android:drawableLeft="@android:drawable/ic_menu_sort_by_size"
+        android:padding="8dp"
         android:text="@string/aprender"
-        android:textSize="@dimen/texto_botao"
-        android:textColor="@color/cor_botao_texto" />
+        android:textSize="@dimen/texto_botao" />
+   />
 
     <Button
         android:id="@+id/btn_select_recognize"
-        android:layout_below="@id/btn_select_learn"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="48dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginTop="24dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/btn_select_learn"
+        android:layout_alignStart="@+id/btn_select_learn"
+        android:layout_alignEnd="@+id/btn_select_learn"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="0dp"
+        android:padding="8dp"
+        android:textColor="@color/cor_botao_texto"
+        android:drawableStart="@android:drawable/ic_menu_help"
         android:background="@drawable/button_rounded"
-        android:text="@string/reconhecer"
-        android:textSize="@dimen/texto_botao"
-        android:textColor="@color/cor_botao_texto" />
+        android:text="@string/reconhecer"/>
 
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_select_recognize"
+        android:layout_marginTop="108dp"
+        android:gravity="center_horizontal"
+        android:layout_marginHorizontal="32dp"
+        android:text="Aprenda e aprimore suas habilidades de compreensão das vibrações"
+        android:textColor="@color/cor_botao"
+        android:textSize="@dimen/texto_exp" />
 
 
 </RelativeLayout>

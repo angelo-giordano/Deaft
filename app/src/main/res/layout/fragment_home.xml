@@ -49,7 +49,8 @@
             android:id="@+id/imageProfile"
             android:layout_width="72dp"
             android:layout_height="72dp"
-            android:layout_gravity="center"
+            android:layout_marginTop="110dp"
+            android:layout_gravity="center_horizontal"
             android:background="@drawable/rounded_image"
             android:contentDescription="@string/foto_de_perfil"
             android:scaleType="centerCrop"
@@ -65,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="280dp"
+                android:layout_marginTop="220dp"
                 android:fontFamily="sans-serif"
                 android:paddingStart="2dp"
                 android:paddingEnd="16dp"
@@ -161,10 +162,11 @@
         android:layout_marginEnd="156dp"
         android:background="@drawable/button_rounded"
         android:layout_centerHorizontal="true"
-        android:backgroundTint="@color/colorAccent"
+        android:padding="4dp"
+        android:backgroundTint="@color/red"
         android:text="@string/editar_perfil"
         android:textAllCaps="false"
-        android:textColor="@color/cor_botao" />
+        android:textColor="@color/cor_botao_texto" />
 
     <Button
         android:id="@+id/btnAddFriend"

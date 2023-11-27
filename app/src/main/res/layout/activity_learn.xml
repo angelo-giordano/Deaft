@@ -57,6 +57,14 @@
         android:textSize="@dimen/texto_botao"
         android:textColor="@color/cor_botao_texto" />
 
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/searchBtn"
+        android:layout_marginTop="108dp"
+        android:gravity="center_horizontal"
+        android:layout_marginHorizontal="32dp"
+        android:text="Digite uma palavra e sinta-a. Aprenda de forma tátil as palavras."        android:textColor="@color/cor_botao"
+        android:textSize="@dimen/texto_exp" />
 
 </RelativeLayout>

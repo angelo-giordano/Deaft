@@ -23,29 +23,15 @@
 
     </FrameLayout>
 
-    <TextView
-        android:id="@+id/textSelect"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/container1"
-        android:layout_alignStart="@+id/spinner_languages"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="56dp"
-        android:textColor="@color/cor_botao"
-        android:text="@string/selecione_a_l_ngua_a_qual_deseja_reconhecer_a_fala"
-        android:textSize="18sp" />
-
     <Spinner
         android:id="@+id/spinner_languages"
         style="@style/SpinnerStyle"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_below="@+id/textSelect"
+        android:layout_below="@+id/container1"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="122dp"
         android:layout_marginEnd="32dp" />
 
     <Button
@@ -54,10 +40,22 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/spinner_languages"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/button_rounded"
         android:textColor="#373737"
         android:textSize="@dimen/texto_botao"
         android:text="@string/selecionar"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="80dp"
+        android:layout_below="@+id/btn_select_language"
+        android:gravity="center"
+        android:text="Selecione a língua que você está traduzindo e sinta as vibrações revelarem o significado das palavras."
+        android:textColor="@color/cor_botao"
+        android:textSize="@dimen/texto_exp"/>
 
 </RelativeLayout>

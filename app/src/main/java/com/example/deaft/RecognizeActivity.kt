@@ -3,9 +3,6 @@ package com.example.deaft
 
 import android.content.Intent
 import android.os.Bundle
-import android.transition.Explode
-import android.view.Window
-import com.chaquo.python.Python
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -13,10 +10,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.ContextCompat
+import com.chaquo.python.Python
 import com.chaquo.python.android.AndroidPlatform
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.coroutines.Dispatchers
@@ -31,7 +28,6 @@ class RecognizeActivity : AppCompatActivity() {
     private lateinit var editTextUserTranscription: EditText
     private lateinit var btnListenAgain: Button
     private lateinit var btnCheckTranscription: Button
-    private lateinit var btnExit: Button
     private lateinit var btnNextWord: Button
     private var currentWord: String = ""
     private lateinit var textViewWordToTranscribe: TextView
@@ -43,7 +39,6 @@ class RecognizeActivity : AppCompatActivity() {
         editTextUserTranscription = findViewById(R.id.editTextUserTranscription)
         btnListenAgain = findViewById(R.id.btnListenAgain)
         btnCheckTranscription = findViewById(R.id.btnCheckTranscription)
-        btnExit = findViewById(R.id.btnExit)
         btnNextWord = findViewById(R.id.btnNextWord)
         textViewWordToTranscribe = findViewById(R.id.viewAnswer)
 
@@ -58,9 +53,11 @@ class RecognizeActivity : AppCompatActivity() {
             onBackPressed()
         }
 
+        VibrationUtil.showEnableHapticFeedbackMessage(this)
         getNextWord()
 
         btnListenAgain.setOnClickListener {
+            VibrationUtil.showEnableHapticFeedbackMessage(this)
             GlobalScope.launch(Dispatchers.Main) {
                 performVibration(currentWord)
             }
@@ -72,10 +69,6 @@ class RecognizeActivity : AppCompatActivity() {
 
         btnNextWord.setOnClickListener {
             getNextWordWithAnimation()
-        }
-
-        btnExit.setOnClickListener {
-            finish()
         }
 
     }

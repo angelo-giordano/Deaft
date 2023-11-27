@@ -2,14 +2,15 @@ package com.example.deaft
 
 import android.content.Context
 import android.os.Build
-import android.os.Handler
 import android.os.VibrationEffect
 import android.os.Vibrator
-import com.chaquo.python.PyObject
+import android.provider.Settings
+import android.view.Gravity
+import android.widget.Toast
 import com.chaquo.python.Python
-import com.chaquo.python.android.AndroidPlatform
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+
 
 class VibrationUtil {
     companion object {
@@ -33,6 +34,27 @@ class VibrationUtil {
                         it.vibrate(milliseconds)
                     }
                 }
+                }
+            }
+        fun isHapticFeedbackEnabled(context: Context): Boolean {
+            val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+
+            // Verificar se a vibração está ativada nas configurações do sistema
+            return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                vibrator.hasVibrator() && Settings.System.getInt(
+                    context.contentResolver,
+                    Settings.System.VIBRATE_ON,
+                    0
+                ) == 1
+            } else {
+                vibrator.hasVibrator()
+            }
+        }
+
+        fun showEnableHapticFeedbackMessage(context: Context) {
+            if (!isHapticFeedbackEnabled(context)) {
+                val toast = Toast.makeText(context, "Por favor, ative o feedback tátil nas configurações do sistema.", Toast.LENGTH_LONG)
+                toast.show()
             }
         }
         suspend fun translateToVibDict(text: String): List<Long> = withContext(Dispatchers.IO) {

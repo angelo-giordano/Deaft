@@ -1,24 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="green">#4CAF50</color>
     <color name="roxo_escuro">#490749</color>
-    <color name="red">#FF5252</color>
-    <color name="_bg__custom_button_ek1_color">#000000</color>
+    <color name="red">#9891D0</color>
     <color name="cor_titulo">#CF68F3</color>
-    <color name="cor_botao_texto">#2B242F</color>
-    <color name="cor_botao">#E9D6EC</color>
+    <color name="cor_botao_texto">#0D0016</color>
+    <color name="cor_botao">#DAB7E0</color>
     <color name="violeta">#903CAE</color>
     <color name="spinner_back">#9891D0</color>
     <color name="spinner_text">#421F51</color>
-    <color name="deaft_color">#000000</color>
 </resources>

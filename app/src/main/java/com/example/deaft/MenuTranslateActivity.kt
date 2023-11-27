@@ -21,7 +21,7 @@ class MenuTranslateActivity : AppCompatActivity() {
         setContentView(R.layout.activity_menu_translate)
 
         AppCompatDelegate.setDefaultNightMode(
-            AppCompatDelegate.MODE_NIGHT_YES);
+            AppCompatDelegate.MODE_NIGHT_YES)
 
         viewPager2 = findViewById(R.id.viewPager2)
         bottomNavigationView = findViewById(R.id.bottomNavigationView)

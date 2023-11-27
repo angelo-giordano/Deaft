@@ -1,8 +1,6 @@
 package com.example.deaft
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,9 +8,8 @@ import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.ImageView
-import androidx.compose.ui.text.toLowerCase
+import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
-import com.google.android.material.textfield.TextInputEditText
 import com.google.common.util.concurrent.FutureCallback
 import com.google.common.util.concurrent.Futures
 import com.google.common.util.concurrent.ListenableFuture
@@ -30,7 +27,7 @@ class LibraFragment : Fragment() {
     private lateinit var inputText: AutoCompleteTextView
     private lateinit var searchBtn: Button
     private lateinit var librasView: ImageView
-    private lateinit var databaseReference: DatabaseReference
+    lateinit var databaseReference: DatabaseReference
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -96,7 +93,7 @@ class LibraFragment : Fragment() {
         })
     }
 
-    private fun getGifUrlById(gifId: String): ListenableFuture<String?> {
+    fun getGifUrlById(gifId: String): ListenableFuture<String?> {
         // Apontar para o nó específico com base no ID
         val gifNodeReference = databaseReference.child(gifId)
         val future = SettableFuture.create<String?>()
@@ -107,7 +104,7 @@ class LibraFragment : Fragment() {
                 // Verificar se o nó existe
                 if (dataSnapshot.exists()) {
                     // Obter o URL do GIF
-                    val gifUrl = dataSnapshot.getValue()
+                    val gifUrl = dataSnapshot.value
 
                     if (gifUrl is String) {
                         future.set(gifUrl)

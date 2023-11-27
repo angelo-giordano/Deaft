@@ -1,8 +1,8 @@
 package com.example.deaft
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -39,13 +39,13 @@ class LoginActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
         google_signIn = findViewById(R.id.google_signIn)
         AppCompatDelegate.setDefaultNightMode(
-            AppCompatDelegate.MODE_NIGHT_YES);
+            AppCompatDelegate.MODE_NIGHT_YES)
 
         createRequest()
 
         //Click on sign in button
         google_signIn.setOnClickListener {
-            signIn();
+            signIn()
         }
     }
 
@@ -56,7 +56,7 @@ class LoginActivity : AppCompatActivity() {
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
     }
 
     private fun signIn() {
