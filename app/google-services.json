@@ -1,28 +1,29 @@
 {
   "project_info": {
     "project_number": "943925557163",
+    "firebase_url": "https://deaft-864a2-default-rtdb.firebaseio.com",
     "project_id": "deaft-864a2",
     "storage_bucket": "deaft-864a2.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:943925557163:android:1d5824a5ee8970150a04ee",
+        "mobilesdk_app_id": "1:943925557163:android:19bea078ca527b540a04ee",
         "android_client_info": {
-          "package_name": "com.example.deaft"
+          "package_name": "com.app.deaft"
         }
       },
       "oauth_client": [
         {
-          "client_id": "943925557163-1eptff9l41qlcog60vq5rombdva2t03m.apps.googleusercontent.com",
+          "client_id": "943925557163-m1g03k481ceadlp5k0dfdedgqdnbo7bu.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.deaft",
-            "certificate_hash": "e291586dc4aaa2ed614cda443a769fcdca355a1d"
+            "package_name": "com.app.deaft",
+            "certificate_hash": "d6707268a85664449f61ebd7a675dd05f25389a8"
           }
         },
         {
-          "client_id": "943925557163-0ne1c7alpjr1vk6htesv46qhd6jglml1.apps.googleusercontent.com",
+          "client_id": "943925557163-k1pmiolb7atgmihtknr1744d8n5irm0m.apps.googleusercontent.com",
           "client_type": 3
         }
       ],

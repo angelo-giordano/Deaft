@@ -103,6 +103,33 @@
                 android:textColor="@color/cor_botao"
                 android:textSize="14sp" />
 
+            <TextView
+                android:id="@+id/textDeafLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textName"
+                android:layout_alignTop="@+id/line1"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="80dp"
+                android:fontFamily="sans-serif"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:text="Grau de perda auditiva"
+                android:textColor="@color/cor_botao"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/textDeafLevel"
+                android:layout_alignStart="@+id/textDeafLevel"
+                android:layout_alignEnd="@+id/textDeafLevel"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="2dp"
+                android:background="@color/colorAccent" />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -129,7 +156,6 @@
         android:layout_marginStart="64dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="64dp"
-        android:layout_marginBottom="24dp"
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:text="@string/sobre_voc"
@@ -146,7 +172,7 @@
         android:layout_alignStart="@+id/textDescription"
         android:layout_alignEnd="@+id/textDescription"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="2dp"
         android:layout_marginEnd="0dp"
         android:background="@color/colorAccent" />
 
@@ -162,7 +188,7 @@
         android:layout_marginEnd="156dp"
         android:background="@drawable/button_rounded"
         android:layout_centerHorizontal="true"
-        android:padding="4dp"
+        android:padding="8dp"
         android:backgroundTint="@color/red"
         android:text="@string/editar_perfil"
         android:textAllCaps="false"
@@ -190,6 +216,18 @@
         android:layout_marginBottom="0dp"
         android:background="@drawable/ic_group_foreground"
         android:contentDescription="@string/bot_o_de_comunidade" />
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/btnAddFriend"
+        android:layout_alignStart="@+id/btnAddFriend"
+        android:layout_alignEnd="@+id/btnAddFriend"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/baseline_logout_24" />
 
 </RelativeLayout>
 

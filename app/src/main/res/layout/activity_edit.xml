@@ -1,0 +1,181 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/roxo_escuro"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/container1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+        <!-- Adicione seus componentes para o Container 1 aqui -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="91dp"
+            android:layout_height="89dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/icone_desc"
+            android:src="@drawable/ic_deaft" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Editar"
+            android:textColor="@color/cor_titulo"
+            android:textSize="@dimen/titulo_grande"
+            android:textStyle="bold|italic" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/containerProfileImage"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/container1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp">
+
+        <!-- Foto do Perfil -->
+
+        <!-- Nome do Usuário -->
+
+        <ImageView
+            android:id="@+id/imageProfile"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginTop="110dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/rounded_image"
+            android:contentDescription="@string/foto_de_perfil"
+            android:scaleType="centerCrop"
+            android:src="@drawable/baseline_person_24" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/textName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="220dp"
+                android:fontFamily="sans-serif"
+                android:paddingStart="2dp"
+                android:paddingEnd="16dp"
+                android:hint="Nome"
+                android:textColorHint="@color/cor_botao"
+                android:backgroundTint="@color/colorAccent"
+                android:textSize="18sp" />
+
+
+            <EditText
+                android:id="@+id/textAge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textName"
+                android:layout_alignStart="@+id/textName"
+                android:layout_gravity="center"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="19dp"
+                android:backgroundTint="@color/colorAccent"
+                android:fontFamily="sans-serif"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:layout_marginBottom="20dp"
+                android:hint="Idade"
+                android:textColorHint="@color/cor_botao"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/textDeafLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="290dp"
+                android:layout_marginEnd="48dp"
+                android:fontFamily="sans-serif"
+                android:paddingEnd="4dp"
+                android:hint="Grau de Perda Auditiva"
+                android:textColorHint="@color/cor_botao"
+                android:textSize="2sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/textDeafLevel"
+                android:layout_alignStart="@+id/textDeafLevel"
+                android:layout_alignEnd="@+id/textDeafLevel"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/colorAccent" />
+
+        </RelativeLayout>
+    </FrameLayout>
+
+
+
+    <!-- Descrição -->
+
+    <EditText
+        android:id="@+id/textDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/containerProfileImage"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="64dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:hint="@string/sobre_voc"
+        android:textColorHint="@color/cor_botao"
+        android:paddingEnd="2dp"
+        android:paddingStart="2dp"
+        android:textSize="14sp"
+        android:background="@color/roxo_escuro" />
+
+    <View
+        android:id="@+id/line2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/textDescription"
+        android:layout_alignStart="@+id/textDescription"
+        android:layout_alignEnd="@+id/textDescription"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="2dp"
+        android:background="@color/colorAccent"
+        android:layout_marginEnd="0dp"/>
+
+    <!-- Botão de Editar Perfil -->
+
+    <Button
+        android:id="@+id/btnSaveProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line2"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="156dp"
+        android:background="@drawable/button_rounded"
+        android:layout_centerHorizontal="true"
+        android:padding="8dp"
+        android:backgroundTint="@color/red"
+        android:text="Salvar"
+        android:textAllCaps="false"
+        android:textColor="@color/cor_botao_texto" />
+
+</RelativeLayout>
+

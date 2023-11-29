@@ -15,14 +15,14 @@ chaquopy {
 }
 
 android {
-    namespace = "com.example.deaft"
+    namespace = "com.app.deaft"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.deaft"
+        applicationId = "com.app.deaft"
         minSdk = 21
         targetSdk = 34
-        versionCode = 1
+        versionCode = 4
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -43,6 +43,10 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            isDebuggable = false
+        }
+        debug {
+            isDebuggable = true
         }
     }
     compileOptions {
@@ -101,6 +105,4 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
     implementation("com.github.bumptech.glide:glide:4.16.0")
     annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
-    implementation("com.google.guava:guava:31.1-jre")
-    implementation("com.google.code.gson:gson:2.10")
 }
