@@ -68,7 +68,7 @@ class DictAdapter(private val itemList: List<String>, private val context: Conte
                             val processedText = VibrationUtil.translateToVibDict(stringValue)
                             processedText.forEach { element ->
                                 VibrationUtil.vibrate(context, element)
-                                delay(500)
+                                delay(800)
                             }
                         }
 

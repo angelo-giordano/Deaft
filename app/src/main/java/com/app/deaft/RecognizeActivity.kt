@@ -136,7 +136,7 @@ class RecognizeActivity : AppCompatActivity() {
             val processedText = VibrationUtil.translateToVib(text)
             processedText.forEach { element ->
                 VibrationUtil.vibrate(this@RecognizeActivity, element)
-                delay(700)
+                delay(800)
             }
         }
     }

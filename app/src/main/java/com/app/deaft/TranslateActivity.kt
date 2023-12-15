@@ -88,7 +88,7 @@ class TranslateActivity : AppCompatActivity() {
                             val processedText = VibrationUtil.translateToVib(matches[0])
                             processedText.forEach { element ->
                                 VibrationUtil.vibrate(this@TranslateActivity, element)
-                                delay(500)
+                                delay(800)
                             }
                         }
                     }
